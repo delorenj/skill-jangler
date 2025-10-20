@@ -2,7 +2,7 @@
 # Skill Seeker MCP Server - Quick Setup Script
 # This script automates the MCP server setup for Claude Code
 
-set -e  # Exit on error
+set -e # Exit on error
 
 echo "=================================================="
 echo "Skill Seeker MCP Server - Quick Setup"
@@ -17,12 +17,11 @@ NC='\033[0m' # No Color
 
 # Step 1: Check Python version
 echo "Step 1: Checking Python version..."
-if ! command -v python3 &> /dev/null; then
-    echo -e "${RED}❌ Error: python3 not found${NC}"
-    echo "Please install Python 3.7 or higher"
-    exit 1
+if ! command -v python3 &>/dev/null; then
+	echo -e "${RED}❌ Error: python3 not found${NC}"
+	echo "Please install Python 3.7 or higher"
+	exit 1
 fi
-
 PYTHON_VERSION=$(python3 --version | cut -d' ' -f2)
 echo -e "${GREEN}✓${NC} Python $PYTHON_VERSION found"
 echo ""
@@ -40,32 +39,32 @@ read -p "Continue? (y/n) " -n 1 -r
 echo ""
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Installing MCP server dependencies..."
-    pip3 install -r mcp/requirements.txt || {
-        echo -e "${RED}❌ Failed to install MCP dependencies${NC}"
-        exit 1
-    }
+	echo "Installing MCP server dependencies..."
+	uv pip install -r mcp/requirements.txt || {
+		echo -e "${RED}❌ Failed to install MCP dependencies${NC}"
+		exit 1
+	}
 
-    echo "Installing CLI tool dependencies..."
-    pip3 install requests beautifulsoup4 || {
-        echo -e "${RED}❌ Failed to install CLI dependencies${NC}"
-        exit 1
-    }
+	echo "Installing CLI tool dependencies..."
+	uv pip install requests beautifulsoup4 || {
+		echo -e "${RED}❌ Failed to install CLI dependencies${NC}"
+		exit 1
+	}
 
-    echo -e "${GREEN}✓${NC} Dependencies installed successfully"
+	echo -e "${GREEN}✓${NC} Dependencies installed successfully"
 else
-    echo "Skipping dependency installation"
+	echo "Skipping dependency installation"
 fi
 echo ""
 
 # Step 4: Test MCP server
 echo "Step 4: Testing MCP server..."
 timeout 3 python3 mcp/server.py 2>/dev/null || {
-    if [ $? -eq 124 ]; then
-        echo -e "${GREEN}✓${NC} MCP server starts correctly (timeout expected)"
-    else
-        echo -e "${YELLOW}⚠${NC} MCP server test inconclusive, but may still work"
-    fi
+	if [ $? -eq 124 ]; then
+		echo -e "${GREEN}✓${NC} MCP server starts correctly (timeout expected)"
+	else
+		echo -e "${YELLOW}⚠${NC} MCP server test inconclusive, but may still work"
+	fi
 }
 echo ""
 
@@ -75,23 +74,23 @@ read -p "Run MCP tests to verify everything works? (y/n) " -n 1 -r
 echo ""
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    # Check if pytest is installed
-    if ! command -v pytest &> /dev/null; then
-        echo "Installing pytest..."
-        pip3 install pytest || {
-            echo -e "${YELLOW}⚠${NC} Could not install pytest, skipping tests"
-        }
-    fi
+	# Check if pytest is installed
+	if ! command -v pytest &>/dev/null; then
+		echo "Installing pytest..."
+		pip3 install pytest || {
+			echo -e "${YELLOW}⚠${NC} Could not install pytest, skipping tests"
+		}
+	fi
 
-    if command -v pytest &> /dev/null; then
-        echo "Running MCP server tests..."
-        python3 -m pytest tests/test_mcp_server.py -v --tb=short || {
-            echo -e "${RED}❌ Some tests failed${NC}"
-            echo "The server may still work, but please check the errors above"
-        }
-    fi
+	if command -v pytest &>/dev/null; then
+		echo "Running MCP server tests..."
+		python3 -m pytest tests/test_mcp_server.py -v --tb=short || {
+			echo -e "${RED}❌ Some tests failed${NC}"
+			echo "The server may still work, but please check the errors above"
+		}
+	fi
 else
-    echo "Skipping tests"
+	echo "Skipping tests"
 fi
 echo ""
 
@@ -146,26 +145,26 @@ read -p "Auto-configure Claude Code now? (y/n) " -n 1 -r
 echo ""
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
-    # Check if config already exists
-    if [ -f ~/.config/claude-code/mcp.json ]; then
-        echo -e "${YELLOW}⚠ Warning: ~/.config/claude-code/mcp.json already exists${NC}"
-        echo "Current contents:"
-        cat ~/.config/claude-code/mcp.json
-        echo ""
-        read -p "Overwrite? (y/n) " -n 1 -r
-        echo ""
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            echo "Skipping auto-configuration"
-            echo "Please manually add the skill-seeker server to your config"
-            exit 0
-        fi
-    fi
+	# Check if config already exists
+	if [ -f ~/.config/claude-code/mcp.json ]; then
+		echo -e "${YELLOW}⚠ Warning: ~/.config/claude-code/mcp.json already exists${NC}"
+		echo "Current contents:"
+		cat ~/.config/claude-code/mcp.json
+		echo ""
+		read -p "Overwrite? (y/n) " -n 1 -r
+		echo ""
+		if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+			echo "Skipping auto-configuration"
+			echo "Please manually add the skill-seeker server to your config"
+			exit 0
+		fi
+	fi
 
-    # Create config directory
-    mkdir -p ~/.config/claude-code
+	# Create config directory
+	mkdir -p ~/.config/claude-code
 
-    # Write configuration
-    cat > ~/.config/claude-code/mcp.json << EOF
+	# Write configuration
+	cat >~/.config/claude-code/mcp.json <<EOF
 {
   "mcpServers": {
     "skill-seeker": {
@@ -179,10 +178,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 }
 EOF
 
-    echo -e "${GREEN}✓${NC} Configuration written to ~/.config/claude-code/mcp.json"
+	echo -e "${GREEN}✓${NC} Configuration written to ~/.config/claude-code/mcp.json"
 else
-    echo "Skipping auto-configuration"
-    echo "Please manually configure Claude Code using the JSON above"
+	echo "Skipping auto-configuration"
+	echo "Please manually configure Claude Code using the JSON above"
 fi
 echo ""
 
