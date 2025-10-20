@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Skill Seeker MCP Server
+Skill Jangler MCP Server
 Model Context Protocol server for generating Claude AI skills from documentation
 """
 
@@ -25,7 +25,7 @@ except ImportError:
 
 
 # Initialize MCP server
-app = Server("skill-seeker")
+app = Server("skill-jangler")
 
 # Path to CLI tools
 CLI_DIR = Path(__file__).parent.parent / "cli"

@@ -1,4 +1,4 @@
-# Complete Usage Guide for Skill Seeker
+# Complete Usage Guide for Skill Jangler
 
 Comprehensive reference for all commands, options, and workflows.
 
@@ -165,7 +165,7 @@ usage: estimate_pages.py [-h] [--max-discovery MAX_DISCOVERY]
                          [--timeout TIMEOUT]
                          config
 
-Estimate page count for Skill Seeker configs
+Estimate page count for Skill Jangler configs
 
 positional arguments:
   config                Path to config JSON file
@@ -738,7 +738,7 @@ ls output/{name}.zip
 export ANTHROPIC_API_KEY=sk-ant-...
 
 # Optional: Set custom output directory
-export SKILL_SEEKER_OUTPUT_DIR=/path/to/output
+export SKILL_JANGLER_OUTPUT_DIR=/path/to/output
 ```
 
 ---
@@ -754,7 +754,7 @@ export SKILL_SEEKER_OUTPUT_DIR=/path/to/output
 ## File Locations
 
 ```
-Skill_Seekers/
+skill-jangler/
 ├── doc_scraper.py           # Main tool
 ├── estimate_pages.py        # Estimator
 ├── enhance_skill.py         # API enhancement

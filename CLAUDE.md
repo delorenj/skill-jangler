@@ -5,15 +5,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 🔌 MCP Integration Available
 
 **This repository includes a fully tested MCP server with 9 tools:**
-- `mcp__skill-seeker__list_configs` - List all available preset configurations
-- `mcp__skill-seeker__generate_config` - Generate a new config file for any docs site
-- `mcp__skill-seeker__validate_config` - Validate a config file structure
-- `mcp__skill-seeker__estimate_pages` - Estimate page count before scraping
-- `mcp__skill-seeker__scrape_docs` - Scrape and build a skill
-- `mcp__skill-seeker__package_skill` - Package skill into .zip file (with auto-upload)
-- `mcp__skill-seeker__upload_skill` - Upload .zip to Claude (NEW)
-- `mcp__skill-seeker__split_config` - Split large documentation configs
-- `mcp__skill-seeker__generate_router` - Generate router/hub skills
+- `mcp__skill-jangler__list_configs` - List all available preset configurations
+- `mcp__skill-jangler__generate_config` - Generate a new config file for any docs site
+- `mcp__skill-jangler__validate_config` - Validate a config file structure
+- `mcp__skill-jangler__estimate_pages` - Estimate page count before scraping
+- `mcp__skill-jangler__scrape_docs` - Scrape and build a skill
+- `mcp__skill-jangler__package_skill` - Package skill into .zip file (with auto-upload)
+- `mcp__skill-jangler__upload_skill` - Upload .zip to Claude (NEW)
+- `mcp__skill-jangler__split_config` - Split large documentation configs
+- `mcp__skill-jangler__generate_router` - Generate router/hub skills
 
 **Setup:** See [docs/MCP_SETUP.md](docs/MCP_SETUP.md) or run `./setup_mcp.sh`
 
@@ -21,7 +21,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Skill Seeker automatically converts any documentation website into a Claude AI skill. It scrapes documentation, organizes content, extracts code patterns, and packages everything into an uploadable `.zip` file for Claude.
+Skill Jangler automatically converts any documentation website into a Claude AI skill. It scrapes documentation, organizes content, extracts code patterns, and packages everything into an uploadable `.zip` file for Claude.
 
 ## Prerequisites
 

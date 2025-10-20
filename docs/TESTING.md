@@ -1,6 +1,6 @@
-# Testing Guide for Skill Seeker
+# Testing Guide for Skill Jangler
 
-Comprehensive testing documentation for the Skill Seeker project.
+Comprehensive testing documentation for the Skill Jangler project.
 
 ## Quick Start
 
@@ -399,7 +399,7 @@ jobs:
 ### Tests Fail with Import Errors
 ```bash
 # Make sure you're in the repository root
-cd /path/to/Skill_Seekers
+cd /path/to/skill-jangler
 
 # Run tests from root directory
 python3 run_tests.py

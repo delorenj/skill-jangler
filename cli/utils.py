@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Utility functions for Skill Seeker CLI tools
+Utility functions for Skill Jangler CLI tools
 """
 
 import os

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Comprehensive test suite for Skill Seeker MCP Server
+Comprehensive test suite for Skill Jangler MCP Server
 Tests all MCP tools and server functionality
 """
 

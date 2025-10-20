@@ -1,11 +1,11 @@
 #!/bin/bash
-# Skill Seeker MCP Server - Quick Setup Script
+# Skill Jangler MCP Server - Quick Setup Script
 # This script automates the MCP server setup for Claude Code
 
 set -e # Exit on error
 
 echo "=================================================="
-echo "Skill Seeker MCP Server - Quick Setup"
+echo "Skill Jangler MCP Server - Quick Setup"
 echo "=================================================="
 echo ""
 
@@ -106,7 +106,7 @@ echo "Add this JSON configuration:"
 echo ""
 echo -e "${GREEN}{"
 echo "  \"mcpServers\": {"
-echo "    \"skill-seeker\": {"
+echo "    \"skill-jangler\": {"
 echo "      \"command\": \"python3\","
 echo "      \"args\": ["
 echo "        \"$REPO_PATH/mcp/server.py\""
@@ -127,7 +127,7 @@ echo ""
 echo -e "${RED}cat > ~/.config/claude-code/mcp.json << 'EOF'
 {
   \"mcpServers\": {
-    \"skill-seeker\": {
+    \"skill-jangler\": {
       \"command\": \"python3\",
       \"args\": [
         \"$REPO_PATH/mcp/server.py\"
@@ -155,7 +155,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 		echo ""
 		if [[ ! $REPLY =~ ^[Yy]$ ]]; then
 			echo "Skipping auto-configuration"
-			echo "Please manually add the skill-seeker server to your config"
+			echo "Please manually add the skill-jangler server to your config"
 			exit 0
 		fi
 	fi
@@ -167,7 +167,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 	cat >~/.config/claude-code/mcp.json <<EOF
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
         "$REPO_PATH/mcp/server.py"
@@ -194,15 +194,18 @@ echo "Next steps:"
 echo ""
 echo "  1. ${YELLOW}Restart Claude Code${NC} (quit and reopen, don't just close window)"
 echo "  2. In Claude Code, test with: ${GREEN}\"List all available configs\"${NC}"
-echo "  3. You should see 6 Skill Seeker tools available"
+echo "  3. You should see 9 Skill Jangler tools available"
 echo ""
 echo "Available MCP Tools:"
 echo "  • generate_config   - Create new config files"
 echo "  • estimate_pages    - Estimate scraping time"
 echo "  • scrape_docs       - Scrape documentation"
 echo "  • package_skill     - Create .zip files"
+echo "  • upload_skill      - Upload skills to Claude"
 echo "  • list_configs      - Show available configs"
 echo "  • validate_config   - Validate config files"
+echo "  • split_config      - Split large documentation"
+echo "  • generate_router   - Create router/hub skills"
 echo ""
 echo "Example commands to try in Claude Code:"
 echo "  • ${GREEN}List all available configs${NC}"

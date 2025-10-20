@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Skill Seeker will be documented in this file.
+All notable changes to Skill Jangler will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🎉 First Production Release
 
-This is the first production-ready release of Skill Seekers with complete feature set, full test coverage, and comprehensive documentation.
+This is the first production-ready release of Skill Jangler with complete feature set, full test coverage, and comprehensive documentation.
 
 ### Added
 
@@ -22,7 +22,7 @@ This is the first production-ready release of Skill Seekers with complete featur
 
 #### MCP Integration Enhancements
 - **9 MCP tools** (added `upload_skill` tool)
-- `mcp__skill-seeker__upload_skill` - Upload .zip files to Claude automatically
+- `mcp__skill-jangler__upload_skill` - Upload .zip files to Claude automatically
 - Enhanced `package_skill` tool with smart auto-upload parameter
 - Updated all MCP documentation to reflect 9 tools
 
@@ -175,9 +175,9 @@ This is the first production-ready release of Skill Seekers with complete featur
 
 ## Release Links
 
-- [v1.0.0](https://github.com/yusufkaraaslan/Skill_Seekers/releases/tag/v1.0.0) - Production Release
-- [v0.4.0](https://github.com/yusufkaraaslan/Skill_Seekers/releases/tag/v0.4.0) - Large Documentation Support
-- [v0.3.0](https://github.com/yusufkaraaslan/Skill_Seekers/releases/tag/v0.3.0) - MCP Integration
+- [v1.0.0](https://github.com/delorenj/skill-jangler/releases/tag/v1.0.0) - Production Release
+- [v0.4.0](https://github.com/delorenj/skill-jangler/releases/tag/v0.4.0) - Large Documentation Support
+- [v0.3.0](https://github.com/delorenj/skill-jangler/releases/tag/v0.3.0) - MCP Integration
 
 ---
 
@@ -193,9 +193,9 @@ This is the first production-ready release of Skill Seekers with complete featur
 
 ---
 
-[Unreleased]: https://github.com/yusufkaraaslan/Skill_Seekers/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/yusufkaraaslan/Skill_Seekers/compare/v0.4.0...v1.0.0
-[0.4.0]: https://github.com/yusufkaraaslan/Skill_Seekers/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/yusufkaraaslan/Skill_Seekers/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/yusufkaraaslan/Skill_Seekers/releases/tag/v0.2.0
-[0.1.0]: https://github.com/yusufkaraaslan/Skill_Seekers/releases/tag/v0.1.0
+[Unreleased]: https://github.com/delorenj/skill-jangler/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/delorenj/skill-jangler/compare/v0.4.0...v1.0.0
+[0.4.0]: https://github.com/delorenj/skill-jangler/compare/v0.3.0...v0.4.0
+[0.3.0]: https://github.com/delorenj/skill-jangler/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/delorenj/skill-jangler/releases/tag/v0.2.0
+[0.1.0]: https://github.com/delorenj/skill-jangler/releases/tag/v0.1.0

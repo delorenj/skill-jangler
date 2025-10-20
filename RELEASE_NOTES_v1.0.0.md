@@ -1,6 +1,6 @@
 # Release v1.0.0 - Production Ready 🚀
 
-First production-ready release of Skill Seekers!
+First production-ready release of Skill Jangler!
 
 ## 🎉 Major Features
 
@@ -92,11 +92,11 @@ python3 cli/package_skill.py output/react/ --upload
 
 ## 🔗 Links
 
-- [Documentation](https://github.com/yusufkaraaslan/Skill_Seekers#readme)
+- [Documentation](https://github.com/delorenj/skill-jangler#readme)
 - [MCP Setup Guide](docs/MCP_SETUP.md)
 - [Upload Guide](docs/UPLOAD_GUIDE.md)
 - [Large Documentation Guide](docs/LARGE_DOCUMENTATION.md)
 - [Contributing Guidelines](CONTRIBUTING.md)
 - [Changelog](CHANGELOG.md)
 
-**Full Changelog:** [af87572...7aa5f0d](https://github.com/yusufkaraaslan/Skill_Seekers/compare/af87572...7aa5f0d)
+**Full Changelog:** [af87572...7aa5f0d](https://github.com/delorenj/skill-jangler/compare/af87572...7aa5f0d)

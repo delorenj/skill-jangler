@@ -1,1 +1,1 @@
-# Test package for Skill Seeker
+# Test package for Skill Jangler

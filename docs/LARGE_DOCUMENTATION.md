@@ -1,6 +1,6 @@
 # Handling Large Documentation Sites (10K+ Pages)
 
-Complete guide for scraping and managing large documentation sites with Skill Seeker.
+Complete guide for scraping and managing large documentation sites with Skill Jangler.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest a new feature for Skill Seeker or MCP server
+about: Suggest a new feature for Skill Jangler or MCP server
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''

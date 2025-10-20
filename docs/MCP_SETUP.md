@@ -1,6 +1,6 @@
 # Complete MCP Setup Guide for Claude Code
 
-Step-by-step guide to set up the Skill Seeker MCP server with Claude Code.
+Step-by-step guide to set up the Skill Jangler MCP server with Claude Code.
 
 **✅ Fully Tested and Working**: All 9 MCP tools verified in production use with Claude Code
 - ✅ 34 comprehensive unit tests (100% pass rate)
@@ -35,10 +35,10 @@ Step-by-step guide to set up the Skill Seeker MCP server with Claude Code.
    - Download from [claude.ai/code](https://claude.ai/code)
    - Requires Claude Pro or Claude Code Max subscription
 
-3. **Skill Seeker repository cloned**
+3. **Skill Jangler repository cloned**
    ```bash
-   git clone https://github.com/yusufkaraaslan/Skill_Seekers.git
-   cd Skill_Seekers
+   git clone https://github.com/delorenj/skill-jangler.git
+   cd skill-jangler
    ```
 
 ### System Requirements
@@ -55,7 +55,7 @@ Step-by-step guide to set up the Skill Seeker MCP server with Claude Code.
 
 ```bash
 # Navigate to repository root
-cd /path/to/Skill_Seekers
+cd /path/to/skill-jangler
 
 # Install MCP server dependencies
 pip3 install -r mcp/requirements.txt
@@ -96,8 +96,8 @@ python3 -m pytest tests/test_mcp_server.py -v
 # Get absolute path
 pwd
 
-# Example output: /Users/username/Projects/Skill_Seekers
-# or: /home/username/Skill_Seekers
+# Example output: /Users/username/Projects/skill-jangler
+# or: /home/username/skill-jangler
 ```
 
 **Save this path** - you'll need it for configuration!
@@ -124,26 +124,26 @@ mkdir -p ~/.config/claude-code
 nano ~/.config/claude-code/mcp.json
 ```
 
-### Step 3: Add Skill Seeker MCP Server
+### Step 3: Add Skill Jangler MCP Server
 
 **Full Configuration Example:**
 
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/Users/username/Projects/Skill_Seekers/mcp/server.py"
+        "/Users/username/Projects/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/Users/username/Projects/Skill_Seekers",
+      "cwd": "/Users/username/Projects/skill-jangler",
       "env": {}
     }
   }
 }
 ```
 
-**IMPORTANT:** Replace `/Users/username/Projects/Skill_Seekers` with YOUR actual repository path!
+**IMPORTANT:** Replace `/Users/username/Projects/skill-jangler` with YOUR actual repository path!
 
 **If you already have other MCP servers:**
 
@@ -154,12 +154,12 @@ nano ~/.config/claude-code/mcp.json
       "command": "node",
       "args": ["/path/to/existing/server.js"]
     },
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/Users/username/Projects/Skill_Seekers/mcp/server.py"
+        "/Users/username/Projects/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/Users/username/Projects/Skill_Seekers"
+      "cwd": "/Users/username/Projects/skill-jangler"
     }
   }
 }
@@ -182,7 +182,7 @@ In Claude Code, type:
 List all available MCP tools
 ```
 
-You should see 9 Skill Seeker tools:
+You should see 9 Skill Jangler tools:
 - `generate_config`
 - `estimate_pages`
 - `scrape_docs`
@@ -298,7 +298,7 @@ Claude: [Scraping starts...]
 ### Issue: MCP Server Not Loading
 
 **Symptoms:**
-- Skill Seeker tools don't appear in Claude Code
+- Skill Jangler tools don't appear in Claude Code
 - No response when asking about configs
 
 **Solutions:**
@@ -316,7 +316,7 @@ Claude: [Scraping starts...]
 
 3. **Test server manually:**
    ```bash
-   cd /path/to/Skill_Seekers
+   cd /path/to/skill-jangler
    python3 mcp/server.py
    # Should start without errors
    ```
@@ -354,7 +354,7 @@ chmod +x mcp/server.py
 1. **Check working directory in config:**
    ```json
    {
-     "cwd": "/FULL/PATH/TO/Skill_Seekers"
+     "cwd": "/FULL/PATH/TO/skill-jangler"
    }
    ```
 
@@ -397,10 +397,10 @@ chmod +x mcp/server.py
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
-      "args": ["/path/to/Skill_Seekers/mcp/server.py"],
-      "cwd": "/path/to/Skill_Seekers",
+      "args": ["/path/to/skill-jangler/mcp/server.py"],
+      "cwd": "/path/to/skill-jangler",
       "env": {
         "ANTHROPIC_API_KEY": "sk-ant-...",
         "PYTHONPATH": "/custom/path"
@@ -417,10 +417,10 @@ If you have multiple Python versions:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "/usr/local/bin/python3.11",
-      "args": ["/path/to/Skill_Seekers/mcp/server.py"],
-      "cwd": "/path/to/Skill_Seekers"
+      "args": ["/path/to/skill-jangler/mcp/server.py"],
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }
@@ -432,7 +432,7 @@ To use a Python virtual environment:
 
 ```bash
 # Create venv
-cd /path/to/Skill_Seekers
+cd /path/to/skill-jangler
 python3 -m venv venv
 source venv/bin/activate
 pip install -r mcp/requirements.txt
@@ -444,10 +444,10 @@ which python3
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
-      "command": "/path/to/Skill_Seekers/venv/bin/python3",
-      "args": ["/path/to/Skill_Seekers/mcp/server.py"],
-      "cwd": "/path/to/Skill_Seekers"
+    "skill-jangler": {
+      "command": "/path/to/skill-jangler/venv/bin/python3",
+      "args": ["/path/to/skill-jangler/mcp/server.py"],
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }
@@ -460,13 +460,13 @@ Enable verbose logging:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
         "-u",
-        "/path/to/Skill_Seekers/mcp/server.py"
+        "/path/to/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/path/to/Skill_Seekers",
+      "cwd": "/path/to/skill-jangler",
       "env": {
         "DEBUG": "1"
       }
@@ -484,12 +484,12 @@ Enable verbose logging:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/Users/username/Projects/Skill_Seekers/mcp/server.py"
+        "/Users/username/Projects/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/Users/username/Projects/Skill_Seekers"
+      "cwd": "/Users/username/Projects/skill-jangler"
     }
   }
 }
@@ -500,12 +500,12 @@ Enable verbose logging:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/Users/username/Projects/Skill_Seekers/mcp/server.py"
+        "/Users/username/Projects/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/Users/username/Projects/Skill_Seekers",
+      "cwd": "/Users/username/Projects/skill-jangler",
       "env": {
         "ANTHROPIC_API_KEY": "sk-ant-your-key-here"
       }
@@ -523,8 +523,8 @@ Enable verbose logging:
 ```bash
 # 1. Install
 cd ~/Projects
-git clone https://github.com/yusufkaraaslan/Skill_Seekers.git
-cd Skill_Seekers
+git clone https://github.com/delorenj/skill-jangler.git
+cd skill-jangler
 pip3 install -r mcp/requirements.txt
 pip3 install requests beautifulsoup4
 
@@ -533,12 +533,12 @@ mkdir -p ~/.config/claude-code
 cat > ~/.config/claude-code/mcp.json << 'EOF'
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/Users/username/Projects/Skill_Seekers/mcp/server.py"
+        "/Users/username/Projects/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/Users/username/Projects/Skill_Seekers"
+      "cwd": "/Users/username/Projects/skill-jangler"
     }
   }
 }
@@ -584,7 +584,7 @@ After successful setup:
 ## Getting Help
 
 - **Documentation**: See [mcp/README.md](../mcp/README.md)
-- **Issues**: [GitHub Issues](https://github.com/yusufkaraaslan/Skill_Seekers/issues)
+- **Issues**: [GitHub Issues](https://github.com/delorenj/skill-jangler/issues)
 - **Examples**: See [.github/ISSUES_TO_CREATE.md](../.github/ISSUES_TO_CREATE.md) for test cases
 
 ---

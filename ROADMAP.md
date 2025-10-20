@@ -1,7 +1,7 @@
-# Skill Seeker Development Roadmap
+# Skill Jangler Development Roadmap
 
 ## Vision
-Transform Skill Seeker into the easiest way to create Claude AI skills from any documentation website, with both CLI and MCP interfaces.
+Transform Skill Jangler into the easiest way to create Claude AI skills from any documentation website, with both CLI and MCP interfaces.
 
 ---
 

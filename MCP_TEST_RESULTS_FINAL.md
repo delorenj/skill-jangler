@@ -27,7 +27,7 @@ The MCP server integration is working perfectly after the fixes. All 9 MCP tools
 **Directory Check:**
 ```bash
 pwd
-# ✅ /mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers/
+# ✅ /path/to/skill-jangler/
 ```
 
 **Test Skills Available:**
@@ -388,7 +388,7 @@ The MCP integration is **production-ready** and can be:
 - **OS:** Linux 6.16.8-1-MANJARO
 - **Python:** 3.x
 - **MCP Server:** Running via Claude Code
-- **Working Directory:** /mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers/
+- **Working Directory:** /path/to/skill-jangler/
 - **Branch:** MCP_refactor
 
 ---
@@ -397,7 +397,7 @@ The MCP integration is **production-ready** and can be:
 
 **🎉 ALL TESTS PASSED - FEATURE COMPLETE AND WORKING! 🎉**
 
-The MCP server integration for Skill Seeker is fully functional. All 9 tools work correctly, error handling is robust, and the user experience is excellent. The critical bug (missing import os) has been fixed and verified.
+The MCP server integration for Skill Jangler is fully functional. All 9 tools work correctly, error handling is robust, and the user experience is excellent. The critical bug (missing import os) has been fixed and verified.
 
 **Feature Status:** ✅ PRODUCTION READY
 

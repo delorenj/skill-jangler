@@ -226,7 +226,7 @@ Update all documentation to reflect cli/ and mcp/ structure.
 ## How to Create Issues
 
 ### Option 1: GitHub Web UI
-1. Go to https://github.com/yusufkaraaslan/Skill_Seekers/issues/new
+1. Go to https://github.com/delorenj/skill-jangler/issues/new
 2. Copy title and body
 3. Add labels
 4. Create issue

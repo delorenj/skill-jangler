@@ -1,10 +1,10 @@
-# Skill Seeker MCP Server
+# Skill Jangler MCP Server
 
-Model Context Protocol (MCP) server for Skill Seeker - enables Claude Code to generate documentation skills directly.
+Model Context Protocol (MCP) server for Skill Jangler - enables Claude Code to generate documentation skills directly.
 
 ## What is This?
 
-This MCP server allows Claude Code to use Skill Seeker's tools directly through natural language commands. Instead of running CLI commands manually, you can ask Claude Code to:
+This MCP server allows Claude Code to use Skill Jangler's tools directly through natural language commands. Instead of running CLI commands manually, you can ask Claude Code to:
 
 - Generate config files for any documentation site
 - Estimate page counts before scraping
@@ -44,18 +44,18 @@ Add to `~/.config/claude-code/mcp.json`:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/path/to/Skill_Seekers/mcp/server.py"
+        "/path/to/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/path/to/Skill_Seekers"
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }
 ```
 
-**Replace `/path/to/Skill_Seekers`** with your actual repository path!
+**Replace `/path/to/skill-jangler`** with your actual repository path!
 
 ### 4. Restart Claude Code
 
@@ -376,7 +376,7 @@ python3 -m pytest tests/test_mcp_server.py -v
 
 **Symptoms:**
 - Tools don't appear in Claude Code
-- No response to skill-seeker commands
+- No response to skill-jangler commands
 
 **Solutions:**
 
@@ -449,10 +449,10 @@ Configure Claude Code to use venv Python:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
-      "command": "/path/to/Skill_Seekers/venv/bin/python3",
-      "args": ["/path/to/Skill_Seekers/mcp/server.py"],
-      "cwd": "/path/to/Skill_Seekers"
+    "skill-jangler": {
+      "command": "/path/to/skill-jangler/venv/bin/python3",
+      "args": ["/path/to/skill-jangler/mcp/server.py"],
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }
@@ -465,10 +465,10 @@ Enable verbose logging:
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
-      "args": ["-u", "/path/to/Skill_Seekers/mcp/server.py"],
-      "cwd": "/path/to/Skill_Seekers",
+      "args": ["-u", "/path/to/skill-jangler/mcp/server.py"],
+      "cwd": "/path/to/skill-jangler",
       "env": {
         "DEBUG": "1"
       }
@@ -484,10 +484,10 @@ For API-based enhancement (requires Anthropic API key):
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
-      "args": ["/path/to/Skill_Seekers/mcp/server.py"],
-      "cwd": "/path/to/Skill_Seekers",
+      "args": ["/path/to/skill-jangler/mcp/server.py"],
+      "cwd": "/path/to/skill-jangler",
       "env": {
         "ANTHROPIC_API_KEY": "sk-ant-your-key-here"
       }
@@ -522,8 +522,8 @@ For API-based enhancement (requires Anthropic API key):
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/yusufkaraaslan/Skill_Seekers/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yusufkaraaslan/Skill_Seekers/discussions)
+- **Issues**: [GitHub Issues](https://github.com/delorenj/skill-jangler/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/delorenj/skill-jangler/discussions)
 
 ## License
 

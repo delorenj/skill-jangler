@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test Runner for Skill Seeker
+Test Runner for Skill Jangler
 Runs all test suites and generates a comprehensive test report
 """
 
@@ -162,7 +162,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description='Run tests for Skill Seeker',
+        description='Run tests for Skill Jangler',
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
 
@@ -187,7 +187,7 @@ def main():
         verbosity = 0
 
     print(f"\n{ColoredTextTestResult.BOLD}{'='*70}{ColoredTextTestResult.RESET}")
-    print(f"{ColoredTextTestResult.BOLD}SKILL SEEKER TEST SUITE{ColoredTextTestResult.RESET}")
+    print(f"{ColoredTextTestResult.BOLD}SKILL JANGLER TEST SUITE{ColoredTextTestResult.RESET}")
     print(f"{ColoredTextTestResult.BOLD}{'='*70}{ColoredTextTestResult.RESET}\n")
 
     # Discover or load specific suite

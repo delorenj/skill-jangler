@@ -1,6 +1,6 @@
 # MCP Integration Test Results
 
-Test documentation for Skill Seeker MCP server with Claude Code.
+Test documentation for Skill Jangler MCP server with Claude Code.
 
 ---
 
@@ -414,12 +414,12 @@ Scrape docs using configs/react.json with max 100 pages
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/path/to/Skill_Seekers/mcp/server.py"
+        "/path/to/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/path/to/Skill_Seekers"
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }

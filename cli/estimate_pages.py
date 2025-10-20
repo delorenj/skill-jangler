@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Page Count Estimator for Skill Seeker
+Page Count Estimator for Skill Jangler
 Quickly estimates how many pages a config will scrape without downloading content
 """
 
@@ -210,7 +210,7 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(
-        description='Estimate page count for Skill Seeker configs',
+        description='Estimate page count for Skill Jangler configs',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

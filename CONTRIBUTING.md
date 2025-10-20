@@ -1,6 +1,6 @@
-# Contributing to Skill Seeker
+# Contributing to Skill Jangler
 
-First off, thank you for considering contributing to Skill Seeker! It's people like you that make Skill Seeker such a great tool.
+First off, thank you for considering contributing to Skill Jangler! It's people like you that make Skill Jangler such a great tool.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ This project and everyone participating in it is governed by our commitment to f
 
 ### Reporting Bugs
 
-Before creating bug reports, please check the [existing issues](https://github.com/yusufkaraaslan/Skill_Seekers/issues) to avoid duplicates.
+Before creating bug reports, please check the [existing issues](https://github.com/delorenj/skill-jangler/issues) to avoid duplicates.
 
 When creating a bug report, include:
 - **Clear title and description**
@@ -54,7 +54,7 @@ When creating a bug report, include:
 
 ### Suggesting Enhancements
 
-Enhancement suggestions are tracked as [GitHub issues](https://github.com/yusufkaraaslan/Skill_Seekers/issues).
+Enhancement suggestions are tracked as [GitHub issues](https://github.com/delorenj/skill-jangler/issues).
 
 Include:
 - **Clear title** describing the enhancement
@@ -110,8 +110,8 @@ We actively welcome your pull requests!
 
 1. **Fork and clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Skill_Seekers.git
-   cd Skill_Seekers
+   git clone https://github.com/YOUR_USERNAME/skill-jangler.git
+   cd skill-jangler
    ```
 
 2. **Install dependencies**
@@ -318,7 +318,7 @@ def test_config_validation_with_missing_fields():
 ## Project Structure
 
 ```
-Skill_Seekers/
+skill-jangler/
 ├── cli/                    # CLI tools
 │   ├── doc_scraper.py     # Main scraper
 │   ├── package_skill.py   # Packager
@@ -350,9 +350,9 @@ Releases are managed by maintainers:
 
 ## Questions?
 
-- 💬 [Open a discussion](https://github.com/yusufkaraaslan/Skill_Seekers/discussions)
-- 🐛 [Report a bug](https://github.com/yusufkaraaslan/Skill_Seekers/issues)
-- 📧 Contact: yusufkaraaslan.yk@pm.me
+- 💬 [Open a discussion](https://github.com/delorenj/skill-jangler/discussions)
+- 🐛 [Report a bug](https://github.com/delorenj/skill-jangler/issues)
+- 📧 Contact: jarad.delorenzo@gmail.com
 
 ---
 
@@ -363,4 +363,4 @@ Contributors will be recognized in:
 - CHANGELOG.md for each release
 - GitHub contributors page
 
-Thank you for contributing to Skill Seeker! 🎉
+Thank you for contributing to Skill Jangler! 🎉

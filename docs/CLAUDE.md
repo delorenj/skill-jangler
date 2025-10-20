@@ -99,6 +99,10 @@ The LOCAL enhancement option (`--enhance-local` or `enhance_skill_local.py`) ope
 ### Test with limited pages (edit config first)
 Set `"max_pages": 20` in the config file to test with fewer pages.
 
+## Overview
+
+This is Skill Jangler, a Python-based documentation scraper that converts ANY documentation website into a Claude skill. It's a single-file tool (`doc_scraper.py`) that scrapes documentation, extracts code patterns, detects programming languages, and generates structured skill files ready for use with Claude.
+
 ## Architecture
 
 ### Single-File Design
@@ -123,7 +127,7 @@ The entire tool is contained in `doc_scraper.py` (~737 lines). It follows a clas
 
 ### Directory Structure
 ```
-Skill_Seekers/
+skill-jangler/
 ├── cli/                        # CLI tools
 │   ├── doc_scraper.py         # Main scraping & building tool
 │   ├── enhance_skill.py       # AI enhancement (API-based)

@@ -1,11 +1,11 @@
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers/mcp/server.py"
+        "/path/to/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers"
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }

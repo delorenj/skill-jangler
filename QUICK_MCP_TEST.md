@@ -37,7 +37,7 @@ Package skill at output/kubernetes/
 ## Verify Results (Run in Terminal)
 
 ```bash
-cd /mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers
+cd /path/to/skill-jangler
 ls configs/tailwind.json
 ls output/kubernetes/SKILL.md
 ls output/kubernetes.zip

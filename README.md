@@ -1,16 +1,22 @@
-# Skill Seeker
+# Skill Jangler
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yusufkaraaslan/Skill_Seekers/releases/tag/v1.0.0)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg)](https://github.com/delorenj/skill-jangler/releases/tag/v0.1.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![MCP Integration](https://img.shields.io/badge/MCP-Integrated-blue.svg)](https://modelcontextprotocol.io)
 [![Tested](https://img.shields.io/badge/Tests-14%20Passing-brightgreen.svg)](tests/)
 
-**Automatically convert any documentation website into a Claude AI skill in minutes.**
+**Transform any documentation into AI-powered Claude skills**
 
-## What is Skill Seeker?
+Automatically convert any documentation website into a Claude AI skill in minutes.
 
-Skill Seeker is an automated tool that transforms any documentation website into a production-ready [Claude AI skill](https://claude.ai). Instead of manually reading and summarizing documentation, Skill Seeker:
+## Attribution
+
+Skill Jangler is a fork of [Skill_Seekers](https://github.com/yusufkaraaslan/Skill_Seekers) by Yusuf Karaaslan. This project builds upon that excellent foundation with enhanced features, improved MCP integration, and ongoing maintenance.
+
+## What is Skill Jangler?
+
+Skill Jangler is an automated tool that transforms any documentation website into a production-ready [Claude AI skill](https://claude.ai). Instead of manually reading and summarizing documentation, Skill Jangler:
 
 1. **Scrapes** documentation websites automatically
 2. **Organizes** content into categorized reference files
@@ -74,7 +80,7 @@ python3 cli/doc_scraper.py --config configs/react.json --enhance-local
 
 ```mermaid
 graph LR
-    A[Documentation Website] --> B[Skill Seeker]
+    A[Documentation Website] --> B[Skill Jangler]
     B --> C[Scraper]
     B --> D[AI Enhancement]
     B --> E[Packager]
@@ -94,7 +100,7 @@ graph LR
 
 ### Method 1: MCP Server for Claude Code (Easiest)
 
-Use Skill Seeker directly from Claude Code with natural language!
+Use Skill Jangler directly from Claude Code with natural language!
 
 ```bash
 # One-time setup (5 minutes)

@@ -2,10 +2,10 @@
 # Script to create GitHub issues via web browser
 # Since gh CLI is not available, we'll open browser to create issues
 
-REPO="yusufkaraaslan/Skill_Seekers"
+REPO="delorenj/skill-jangler"
 BASE_URL="https://github.com/${REPO}/issues/new"
 
-echo "🚀 Creating GitHub Issues for Skill Seeker MCP Development"
+echo "🚀 Creating GitHub Issues for Skill Jangler MCP Development"
 echo "=========================================================="
 echo ""
 echo "Opening browser to create issues..."

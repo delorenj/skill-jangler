@@ -1,7 +1,7 @@
 # Repository Structure
 
 ```
-Skill_Seekers/
+skill-jangler/
 │
 ├── 📄 Root Documentation
 │   ├── README.md                  # Main documentation (start here!)
@@ -74,7 +74,7 @@ Skill_Seekers/
 - **cli/package_skill.py** - Package skills to .zip
 
 ### For MCP Usage (Claude Code):
-- **mcp/server.py** - MCP server (6 tools)
+- **mcp/server.py** - MCP server (9 tools)
 - **mcp/README.md** - Setup instructions
 - **configs/** - Shared configurations
 

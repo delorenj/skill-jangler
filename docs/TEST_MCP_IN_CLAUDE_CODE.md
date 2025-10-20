@@ -1,6 +1,6 @@
 # Testing MCP Server in Claude Code
 
-This guide shows you how to test the Skill Seeker MCP server **through actual Claude Code** using the MCP protocol (not just Python function calls).
+This guide shows you how to test the Skill Jangler MCP server **through actual Claude Code** using the MCP protocol (not just Python function calls).
 
 ## Important: What We Tested vs What You Need to Test
 
@@ -18,7 +18,7 @@ You need to test via **Claude Code** using the MCP protocol:
 ```
 In Claude Code:
 > List all available configs
-> mcp__skill-seeker__list_configs
+> mcp__skill-jangler__list_configs
 ```
 
 This verifies the **full integration** works.
@@ -42,12 +42,12 @@ Add this configuration (replace `/path/to/` with your actual path):
 ```json
 {
   "mcpServers": {
-    "skill-seeker": {
+    "skill-jangler": {
       "command": "python3",
       "args": [
-        "/mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers/mcp/server.py"
+        "/path/to/skill-jangler/mcp/server.py"
       ],
-      "cwd": "/mnt/1ece809a-2821-4f10-aecb-fcdf34760c0b/Git/Skill_Seekers"
+      "cwd": "/path/to/skill-jangler"
     }
   }
 }
@@ -70,26 +70,29 @@ In Claude Code, check if the server loaded:
 Show me all available MCP tools
 ```
 
-You should see 6 tools with the prefix `mcp__skill-seeker__`:
-- `mcp__skill-seeker__list_configs`
-- `mcp__skill-seeker__generate_config`
-- `mcp__skill-seeker__validate_config`
-- `mcp__skill-seeker__estimate_pages`
-- `mcp__skill-seeker__scrape_docs`
-- `mcp__skill-seeker__package_skill`
+You should see 9 tools with the prefix `mcp__skill-jangler__`:
+- `mcp__skill-jangler__list_configs`
+- `mcp__skill-jangler__generate_config`
+- `mcp__skill-jangler__validate_config`
+- `mcp__skill-jangler__estimate_pages`
+- `mcp__skill-jangler__scrape_docs`
+- `mcp__skill-jangler__package_skill`
+- `mcp__skill-jangler__upload_skill`
+- `mcp__skill-jangler__split_config`
+- `mcp__skill-jangler__generate_router`
 
-## Testing All 6 MCP Tools
+## Testing All 9 MCP Tools
 
 ### Test 1: list_configs
 
 **In Claude Code, type:**
 ```
-List all available Skill Seeker configs
+List all available Skill Jangler configs
 ```
 
 **Or explicitly:**
 ```
-Use mcp__skill-seeker__list_configs
+Use mcp__skill-jangler__list_configs
 ```
 
 **Expected Output:**
@@ -113,7 +116,7 @@ Generate a config for Astro documentation at https://docs.astro.build with max 1
 
 **Or explicitly:**
 ```
-Use mcp__skill-seeker__generate_config with:
+Use mcp__skill-jangler__generate_config with:
 - name: astro-test
 - url: https://docs.astro.build
 - description: Astro framework testing
@@ -134,7 +137,7 @@ Validate the astro-test config
 
 **Or explicitly:**
 ```
-Use mcp__skill-seeker__validate_config for configs/astro-test.json
+Use mcp__skill-jangler__validate_config for configs/astro-test.json
 ```
 
 **Expected Output:**
@@ -154,7 +157,7 @@ Estimate pages for the astro-test config
 
 **Or explicitly:**
 ```
-Use mcp__skill-seeker__estimate_pages for configs/astro-test.json
+Use mcp__skill-jangler__estimate_pages for configs/astro-test.json
 ```
 
 **Expected Output:**
@@ -173,7 +176,7 @@ Scrape docs using the astro-test config
 
 **Or explicitly:**
 ```
-Use mcp__skill-seeker__scrape_docs with configs/astro-test.json
+Use mcp__skill-jangler__scrape_docs with configs/astro-test.json
 ```
 
 **Expected Output:**
@@ -192,7 +195,7 @@ Package the astro-test skill
 
 **Or explicitly:**
 ```
-Use mcp__skill-seeker__package_skill for output/astro-test/
+Use mcp__skill-jangler__package_skill for output/astro-test/
 ```
 
 **Expected Output:**
@@ -232,8 +235,8 @@ Expected result: `output/svelte.zip` ready to upload to Claude!
 ### Issue: Tools Not Appearing
 
 **Symptoms:**
-- Claude Code doesn't recognize skill-seeker commands
-- No `mcp__skill-seeker__` tools listed
+- Claude Code doesn't recognize skill-jangler commands
+- No `mcp__skill-jangler__` tools listed
 
 **Solutions:**
 
@@ -244,7 +247,7 @@ Expected result: `output/svelte.zip` ready to upload to Claude!
 
 2. Verify server can start:
    ```bash
-   cd /path/to/Skill_Seekers
+   cd /path/to/skill-jangler
    python3 mcp/server.py
    # Should start without errors (Ctrl+C to exit)
    ```
@@ -284,7 +287,7 @@ Use this checklist to verify MCP integration:
 - [ ] Server starts without errors when run manually
 - [ ] Claude Code completely restarted (quit and reopened)
 - [ ] Tools appear when asking "show me all MCP tools"
-- [ ] Tools have `mcp__skill-seeker__` prefix
+- [ ] Tools have `mcp__skill-jangler__` prefix
 - [ ] Can list configs successfully
 - [ ] Can generate a test config
 - [ ] Can scrape and package a small skill

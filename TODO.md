@@ -1,4 +1,4 @@
-# Skill Seeker MCP Development Plan
+# Skill Jangler MCP Development Plan
 
 ## Phase 1: MCP Core ✅ DONE
 - [x] Refactor to monorepo structure

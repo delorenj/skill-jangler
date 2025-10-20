@@ -1,13 +1,13 @@
 # GitHub Project Setup Guide
 
-Quick guide to set up GitHub Issues and Project Board for Skill Seeker MCP development.
+Quick guide to set up GitHub Issues and Project Board for Skill Jangler MCP development.
 
 ---
 
 ## Step 1: Create GitHub Issues (5 minutes)
 
 ### Quick Method:
-1. Open: https://github.com/yusufkaraaslan/Skill_Seekers/issues/new
+1. Open: https://github.com/delorenj/skill-jangler/issues/new
 2. Open in another tab: `.github/ISSUES_TO_CREATE.md` (in your repo)
 3. Copy title and body for each issue
 4. Create 4 issues
@@ -39,10 +39,10 @@ Quick guide to set up GitHub Issues and Project Board for Skill Seeker MCP devel
 ## Step 2: Create GitHub Project Board (2 minutes)
 
 ### Steps:
-1. Go to: https://github.com/yusufkaraaslan/Skill_Seekers/projects
+1. Go to: https://github.com/delorenj/skill-jangler/projects
 2. Click **"New project"**
 3. Choose **"Board"** template
-4. Name it: **"Skill Seeker MCP Development"**
+4. Name it: **"Skill Jangler MCP Development"**
 5. Click **"Create project"**
 
 ### Configure Board:
@@ -139,10 +139,10 @@ Daily:
 
 ## Quick Links
 
-- **Issues:** https://github.com/yusufkaraaslan/Skill_Seekers/issues
-- **Projects:** https://github.com/yusufkaraaslan/Skill_Seekers/projects
-- **New Issue:** https://github.com/yusufkaraaslan/Skill_Seekers/issues/new
-- **New Project:** https://github.com/yusufkaraaslan/Skill_Seekers/projects/new
+- **Issues:** https://github.com/delorenj/skill-jangler/issues
+- **Projects:** https://github.com/delorenj/skill-jangler/projects
+- **New Issue:** https://github.com/delorenj/skill-jangler/issues/new
+- **New Project:** https://github.com/delorenj/skill-jangler/projects/new
 
 ---
 
