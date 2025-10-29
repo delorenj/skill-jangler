@@ -11,10 +11,10 @@
 export ANTHROPIC_API_KEY=sk-ant-...
 
 # Package and upload automatically
-python3 cli/package_skill.py output/react/ --upload
+uv run skill-seeker-package output/react/ --upload
 
 # OR upload existing .zip
-python3 cli/upload_skill.py output/react.zip
+uv run skill-seeker-upload output/react.zip
 ```
 
 ✅ **Fully automatic** | No manual steps | Requires API key
@@ -23,7 +23,7 @@ python3 cli/upload_skill.py output/react.zip
 
 ```bash
 # Package the skill
-python3 cli/package_skill.py output/react/
+uv run skill-seeker-package output/react/
 
 # This will:
 # 1. Create output/react.zip
@@ -80,7 +80,7 @@ The package script:
 
 **Example:**
 ```bash
-python3 cli/package_skill.py output/steam-economy/
+uv run skill-seeker-package output/steam-economy/
 
 📦 Packaging skill: steam-economy
    Source: output/steam-economy
@@ -99,7 +99,7 @@ python3 cli/package_skill.py output/steam-economy/
 
 ### Step 1: Scrape & Build
 ```bash
-python3 cli/doc_scraper.py --config configs/steam-economy.json
+uv run skill-seekers --config configs/steam-economy.json
 ```
 
 **Output:**
@@ -108,7 +108,7 @@ python3 cli/doc_scraper.py --config configs/steam-economy.json
 
 ### Step 2: Enhance (Recommended)
 ```bash
-python3 cli/enhance_skill_local.py output/steam-economy/
+uv run skill-seeker-enhance-local output/steam-economy/
 ```
 
 **What it does:**
@@ -122,7 +122,7 @@ python3 cli/enhance_skill_local.py output/steam-economy/
 
 ### Step 3: Package
 ```bash
-python3 cli/package_skill.py output/steam-economy/
+uv run skill-seeker-package output/steam-economy/
 ```
 
 **Output:**
@@ -181,7 +181,7 @@ Claude has generous size limits, so most documentation-based skills fit easily.
 
 ### Package a Skill
 ```bash
-python3 cli/package_skill.py output/steam-economy/
+uv run skill-seeker-package output/steam-economy/
 ```
 
 ### Package Multiple Skills
@@ -189,7 +189,7 @@ python3 cli/package_skill.py output/steam-economy/
 # Package all skills in output/
 for dir in output/*/; do
   if [ -f "$dir/SKILL.md" ]; then
-    python3 cli/package_skill.py "$dir"
+    uv run skill-seeker-package "$dir"
   fi
 done
 ```
@@ -212,10 +212,10 @@ cat temp-test/SKILL.md
 ### "SKILL.md not found"
 ```bash
 # Make sure you scraped and built first
-python3 cli/doc_scraper.py --config configs/steam-economy.json
+uv run skill-seekers --config configs/steam-economy.json
 
 # Then package
-python3 cli/package_skill.py output/steam-economy/
+uv run skill-seeker-package output/steam-economy/
 ```
 
 ### "Directory not found"
@@ -224,7 +224,7 @@ python3 cli/package_skill.py output/steam-economy/
 ls output/
 
 # Use correct path
-python3 cli/package_skill.py output/YOUR-SKILL-NAME/
+uv run skill-seeker-package output/YOUR-SKILL-NAME/
 ```
 
 ### Zip is Too Large
@@ -284,10 +284,10 @@ echo 'export ANTHROPIC_API_KEY=sk-ant-...' >> ~/.bashrc  # or ~/.zshrc
 
 ```bash
 # Upload existing .zip
-python3 cli/upload_skill.py output/react.zip
+uv run skill-seeker-upload output/react.zip
 
 # OR package and upload in one command
-python3 cli/package_skill.py output/react/ --upload
+uv run skill-seeker-package output/react/ --upload
 ```
 
 ### How It Works
@@ -328,15 +328,15 @@ export ANTHROPIC_API_KEY=sk-ant-...
 **What you need to do:**
 
 ### With API Key (Automatic):
-1. ✅ Scrape: `python3 cli/doc_scraper.py --config configs/YOUR-CONFIG.json`
-2. ✅ Enhance: `python3 cli/enhance_skill_local.py output/YOUR-SKILL/`
-3. ✅ Package & Upload: `python3 cli/package_skill.py output/YOUR-SKILL/ --upload`
+1. ✅ Scrape: `uv run skill-seekers --config configs/YOUR-CONFIG.json`
+2. ✅ Enhance: `uv run skill-seeker-enhance-local output/YOUR-SKILL/`
+3. ✅ Package & Upload: `uv run skill-seeker-package output/YOUR-SKILL/ --upload`
 4. ✅ Done! Skill is live in Claude
 
 ### Without API Key (Manual):
-1. ✅ Scrape: `python3 cli/doc_scraper.py --config configs/YOUR-CONFIG.json`
-2. ✅ Enhance: `python3 cli/enhance_skill_local.py output/YOUR-SKILL/`
-3. ✅ Package: `python3 cli/package_skill.py output/YOUR-SKILL/`
+1. ✅ Scrape: `uv run skill-seekers --config configs/YOUR-CONFIG.json`
+2. ✅ Enhance: `uv run skill-seeker-enhance-local output/YOUR-SKILL/`
+3. ✅ Package: `uv run skill-seeker-package output/YOUR-SKILL/`
 4. ✅ Upload: Go to https://claude.ai/skills and upload the `.zip`
 
 **What you upload:**

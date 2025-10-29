@@ -190,7 +190,7 @@ Notice `(venv)` appears in your prompt - this means the virtual environment is a
 
 ```bash
 # Now install packages (only needed once)
-pip install requests beautifulsoup4 pytest
+uv sync pytest
 
 # Save the dependency list
 pip freeze > requirements.txt
@@ -236,7 +236,7 @@ Let's make sure everything works:
 
 ```bash
 # Test the main script can run
-python3 cli/doc_scraper.py --help
+uv run skill-seekers --help
 ```
 
 **✅ Success looks like:**
@@ -276,7 +276,7 @@ cat > configs/test.json << 'EOF'
 EOF
 
 # Run the scraper
-python3 cli/doc_scraper.py --config configs/test.json
+uv run skill-seekers --config configs/test.json
 ```
 
 **What happens:**
@@ -299,7 +299,7 @@ Page 2/5: Editor Setup
 
 ```bash
 # Use the React preset
-python3 cli/doc_scraper.py --config configs/react.json --max-pages 50
+uv run skill-seekers --config configs/react.json --max-pages 50
 ```
 
 **⏱️ Time:** ~5 minutes
@@ -325,7 +325,7 @@ head output/test-skill/SKILL.md
 
 ```bash
 # Package the skill
-python3 cli/package_skill.py output/test-skill/
+uv run skill-seeker-package output/test-skill/
 ```
 
 **✅ Success looks like:**
@@ -363,20 +363,20 @@ You now have a working Skill Seeker installation! Here's what you can do:
 ls configs/
 
 # Try Vue.js
-python3 cli/doc_scraper.py --config configs/vue.json --max-pages 50
+uv run skill-seekers --config configs/vue.json --max-pages 50
 
 # Try Django
-python3 cli/doc_scraper.py --config configs/django.json --max-pages 50
+uv run skill-seekers --config configs/django.json --max-pages 50
 ```
 
 ### Create Custom Skills
 
 ```bash
 # Interactive mode - answer questions
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 
 # Or create config for any website
-python3 cli/doc_scraper.py \
+uv run skill-seekers \
   --name myframework \
   --url https://docs.myframework.com/ \
   --description "My favorite framework"
@@ -444,7 +444,7 @@ ls cli/
 **Solution:**
 ```bash
 # Install dependencies again
-pip3 install requests beautifulsoup4
+uv sync
 
 # If that fails, try:
 pip3 install --user requests beautifulsoup4
@@ -457,7 +457,7 @@ pip3 install --user requests beautifulsoup4
 **Solution:**
 ```bash
 # Use smaller max_pages for testing
-python3 cli/doc_scraper.py --config configs/react.json --max-pages 10
+uv run skill-seekers --config configs/react.json --max-pages 10
 
 # Check internet connection
 ping google.com
@@ -493,10 +493,10 @@ curl -I https://docs.yoursite.com
 # Your typical workflow:
 
 # 1. Create/use a config
-python3 cli/doc_scraper.py --config configs/react.json --max-pages 50
+uv run skill-seekers --config configs/react.json --max-pages 50
 
 # 2. Package it
-python3 cli/package_skill.py output/react/
+uv run skill-seeker-package output/react/
 
 # 3. Upload output/react.zip to Claude
 

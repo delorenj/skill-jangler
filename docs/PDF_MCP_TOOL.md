@@ -77,7 +77,7 @@ result = await mcp.call_tool("scrape_pdf", {
 
 ✅ Skill built successfully: output/mymanual/
 
-📦 Next step: Package with: python3 cli/package_skill.py output/mymanual/
+📦 Next step: Package with: uv run skill-seeker-package output/mymanual/
 ```
 
 ### Mode 2: Direct PDF
@@ -286,9 +286,9 @@ Error: [Errno 2] No such file or directory: 'manual.pdf'
 **Error 3: PyMuPDF not installed**
 ```
 ERROR: PyMuPDF not installed
-Install with: pip install PyMuPDF
+Install with: uv sync PyMuPDF
 ```
-**Solution:** Install PyMuPDF: `pip install PyMuPDF`
+**Solution:** Install PyMuPDF: `uv sync PyMuPDF`
 
 **Error 4: Invalid JSON config**
 ```

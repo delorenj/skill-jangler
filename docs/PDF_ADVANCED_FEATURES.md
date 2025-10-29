@@ -42,7 +42,7 @@ sudo apt-get install tesseract-ocr
 brew install tesseract
 
 # Install Python packages
-pip install pytesseract Pillow
+uv sync pytesseract Pillow
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ python3 cli/pdf_extractor_poc.py scanned.pdf --ocr
 python3 cli/pdf_extractor_poc.py scanned.pdf --ocr --verbose -o output.json
 
 # Full skill creation with OCR
-python3 cli/pdf_scraper.py --pdf scanned.pdf --name myskill --ocr
+uv run skill-seeker-pdf --pdf scanned.pdf --name myskill --ocr
 ```
 
 ### How It Works
@@ -105,7 +105,7 @@ Handle encrypted PDFs with password protection.
 python3 cli/pdf_extractor_poc.py encrypted.pdf --password mypassword
 
 # With full workflow
-python3 cli/pdf_scraper.py --pdf encrypted.pdf --name myskill --password mypassword
+uv run skill-seeker-pdf --pdf encrypted.pdf --name myskill --password mypassword
 ```
 
 ### How It Works
@@ -158,7 +158,7 @@ python3 cli/pdf_extractor_poc.py data.pdf --extract-tables
 python3 cli/pdf_extractor_poc.py data.pdf --extract-tables --verbose -o output.json
 
 # Full skill creation with tables
-python3 cli/pdf_scraper.py --pdf data.pdf --name myskill --extract-tables
+uv run skill-seeker-pdf --pdf data.pdf --name myskill --extract-tables
 ```
 
 ### How It Works
@@ -237,7 +237,7 @@ python3 cli/pdf_extractor_poc.py large.pdf --parallel
 python3 cli/pdf_extractor_poc.py large.pdf --parallel --workers 8
 
 # With full workflow
-python3 cli/pdf_scraper.py --pdf large.pdf --name myskill --parallel --workers 8
+uv run skill-seeker-pdf --pdf large.pdf --name myskill --parallel --workers 8
 ```
 
 ### How It Works
@@ -348,7 +348,7 @@ python3 cli/pdf_extractor_poc.py input.pdf --no-cache
 Extract everything as fast as possible:
 
 ```bash
-python3 cli/pdf_scraper.py \
+uv run skill-seeker-pdf \
   --pdf docs/manual.pdf \
   --name myskill \
   --extract-images \
@@ -361,7 +361,7 @@ python3 cli/pdf_scraper.py \
 ### Scanned PDF with Tables
 
 ```bash
-python3 cli/pdf_scraper.py \
+uv run skill-seeker-pdf \
   --pdf docs/scanned.pdf \
   --name myskill \
   --ocr \
@@ -373,7 +373,7 @@ python3 cli/pdf_scraper.py \
 ### Encrypted PDF with All Features
 
 ```bash
-python3 cli/pdf_scraper.py \
+uv run skill-seeker-pdf \
   --pdf docs/encrypted.pdf \
   --name myskill \
   --password mypassword \
@@ -424,7 +424,7 @@ python3 cli/pdf_scraper.py \
 
 ```bash
 # Install pytesseract
-pip install pytesseract
+uv sync pytesseract
 
 # Install Tesseract engine
 sudo apt-get install tesseract-ocr  # Ubuntu
@@ -477,13 +477,13 @@ python3 cli/pdf_extractor_poc.py large.pdf
 
 1. Use parallel processing:
    ```bash
-   python3 cli/pdf_scraper.py --pdf large.pdf --parallel --workers 8
+   uv run skill-seeker-pdf --pdf large.pdf --parallel --workers 8
    ```
 
 2. Extract to JSON first, then build skill:
    ```bash
    python3 cli/pdf_extractor_poc.py large.pdf -o extracted.json --parallel
-   python3 cli/pdf_scraper.py --from-json extracted.json --name myskill
+   uv run skill-seeker-pdf --from-json extracted.json --name myskill
    ```
 
 3. Monitor system resources
@@ -492,7 +492,7 @@ python3 cli/pdf_extractor_poc.py large.pdf
 
 1. Use OCR with parallel processing:
    ```bash
-   python3 cli/pdf_scraper.py --pdf scanned.pdf --ocr --parallel --workers 4
+   uv run skill-seeker-pdf --pdf scanned.pdf --ocr --parallel --workers 4
    ```
 
 2. Test on sample pages first
@@ -503,7 +503,7 @@ python3 cli/pdf_extractor_poc.py large.pdf
 1. Use environment variable for password:
    ```bash
    export PDF_PASSWORD="mypassword"
-   python3 cli/pdf_scraper.py --pdf encrypted.pdf --password "$PDF_PASSWORD"
+   uv run skill-seeker-pdf --pdf encrypted.pdf --password "$PDF_PASSWORD"
    ```
 
 2. Clear history after use to remove password
@@ -512,7 +512,7 @@ python3 cli/pdf_extractor_poc.py large.pdf
 
 1. Enable table extraction:
    ```bash
-   python3 cli/pdf_scraper.py --pdf data.pdf --extract-tables
+   uv run skill-seeker-pdf --pdf data.pdf --extract-tables
    ```
 
 2. Check table quality in output JSON

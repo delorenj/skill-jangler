@@ -506,7 +506,7 @@ The image extraction feature will be integrated into the full PDF scraper:
 
 ```bash
 # Future: Full PDF scraper with images
-python3 cli/pdf_scraper.py \
+uv run skill-seeker-pdf \
   --config configs/manual_pdf.json \
   --extract-images \
   --enhance-local

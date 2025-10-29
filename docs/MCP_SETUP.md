@@ -58,10 +58,10 @@ Step-by-step guide to set up the Skill Seeker MCP server with Claude Code.
 cd /path/to/Skill_Seekers
 
 # Install MCP server dependencies
-pip3 install -r mcp/requirements.txt
+uv sync -r mcp/requirements.txt
 
 # Install CLI tool dependencies (for scraping)
-pip3 install requests beautifulsoup4
+uv sync requests beautifulsoup4
 ```
 
 **Expected output:**
@@ -82,7 +82,7 @@ timeout 3 python3 mcp/server.py || echo "Server OK (timeout expected)"
 
 ```bash
 # Install test dependencies
-pip3 install pytest
+uv sync pytest
 
 # Run MCP server tests (25 tests)
 python3 -m pytest tests/test_mcp_server.py -v
@@ -246,7 +246,7 @@ Claude: 📊 Estimated pages: 150
 User: Scrape docs using configs/svelte.json
 
 Claude: ✅ Skill created at output/svelte/
-        Run: python3 cli/package_skill.py output/svelte/
+        Run: uv run skill-seeker-package output/svelte/
 
 User: Package skill at output/svelte/
 
@@ -333,7 +333,7 @@ Claude: [Scraping starts...]
 
 **Solution:**
 ```bash
-pip3 install -r mcp/requirements.txt
+uv sync -r mcp/requirements.txt
 ```
 
 ### Issue: "Permission denied" when running server
@@ -367,7 +367,7 @@ chmod +x mcp/server.py
 
 3. **Test CLI tools directly:**
    ```bash
-   python3 cli/doc_scraper.py --help
+   uv run skill-seekers --help
    ```
 
 ### Issue: Slow or hanging operations
@@ -435,8 +435,8 @@ To use a Python virtual environment:
 cd /path/to/Skill_Seekers
 python3 -m venv venv
 source venv/bin/activate
-pip install -r mcp/requirements.txt
-pip install requests beautifulsoup4
+uv sync -r mcp/requirements.txt
+uv sync requests beautifulsoup4
 which python3
 # Copy this path for config
 ```
@@ -525,8 +525,8 @@ Enable verbose logging:
 cd ~/Projects
 git clone https://github.com/yusufkaraaslan/Skill_Seekers.git
 cd Skill_Seekers
-pip3 install -r mcp/requirements.txt
-pip3 install requests beautifulsoup4
+uv sync -r mcp/requirements.txt
+uv sync requests beautifulsoup4
 
 # 2. Configure
 mkdir -p ~/.config/claude-code
@@ -593,7 +593,7 @@ After successful setup:
 
 ```
 SETUP:
-1. Install dependencies: pip3 install -r mcp/requirements.txt
+1. Install dependencies: uv sync -r mcp/requirements.txt
 2. Configure: ~/.config/claude-code/mcp.json
 3. Restart Claude Code
 

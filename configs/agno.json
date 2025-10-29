@@ -1,0 +1,29 @@
+{
+  "name": "agno",
+  "description": "Agno AI agent framework. Use for building multi-agent systems, AgentOS runtime, MCP server integration, and agentic AI development.",
+  "base_url": "https://docs.agno.com/",
+  "start_urls": [
+    "https://docs.agno.com/introduction/quickstart",
+    "https://docs.agno.com/examples/introduction",
+    "https://docs.agno.com/how-to/v2-migration"
+  ],
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": ["/introduction/", "/examples/", "/how-to/", "/reference/", "/guides/"],
+    "exclude": ["/external-links/", "/changelog/", "/blog/"]
+  },
+  "categories": {
+    "getting_started": ["quickstart", "introduction", "getting-started", "intro"],
+    "agents": ["agent", "multi-agent", "memory", "knowledge"],
+    "agentos": ["agentos", "runtime", "fastapi", "server"],
+    "integration": ["mcp", "integration", "database", "connectivity"],
+    "examples": ["examples", "gallery", "demo", "sample"],
+    "migration": ["migration", "upgrade", "v2-migration", "how-to"]
+  },
+  "rate_limit": 0.5,
+  "max_pages": 250
+}

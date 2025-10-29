@@ -61,7 +61,7 @@ Supports detection of 19 programming languages:
 ### Prerequisites
 
 ```bash
-pip install PyMuPDF
+uv sync PyMuPDF
 ```
 
 ### Verify Installation

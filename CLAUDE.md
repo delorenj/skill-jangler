@@ -58,35 +58,37 @@ Skill Seeker automatically converts any documentation website into a Claude AI s
 
 **Python Version:** Python 3.10 or higher (required for MCP integration)
 
-**Setup with Virtual Environment (Recommended):**
-```bash
-# One-time setup
-python3 -m venv venv
-source venv/bin/activate  # macOS/Linux (Windows: venv\Scripts\activate)
-pip install requests beautifulsoup4 pytest
-pip freeze > requirements.txt
+**UV Package Manager:** Install uv for modern Python package management
 
-# Every time you use Skill Seeker in a new terminal session
-source venv/bin/activate  # Activate before using any commands
+```bash
+# Install UV (macOS/Linux)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install UV (Windows)
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-**Why use a virtual environment?**
-- Keeps dependencies isolated from system Python
-- Prevents package version conflicts
-- Standard Python development practice
-- Required for running tests with pytest
+**Setup with UV (Recommended):**
+```bash
+# One-time setup - Install all dependencies
+uv sync
+
+# That's it! No venv activation needed.
+# UV creates and manages .venv automatically.
+```
 
 **If someone else clones this repo:**
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+uv sync
+# Ready to go!
 ```
 
 **Optional (for API-based enhancement):**
 ```bash
-source venv/bin/activate
-pip install anthropic
+# Install anthropic for API enhancement
+uv sync --extra enhance
+
+# Set API key
 export ANTHROPIC_API_KEY=sk-ant-...
 ```
 
@@ -96,30 +98,30 @@ export ANTHROPIC_API_KEY=sk-ant-...
 
 ```bash
 # Scrape and build with a preset configuration
-python3 cli/doc_scraper.py --config configs/godot.json
-python3 cli/doc_scraper.py --config configs/react.json
-python3 cli/doc_scraper.py --config configs/vue.json
-python3 cli/doc_scraper.py --config configs/django.json
-python3 cli/doc_scraper.py --config configs/laravel.json
-python3 cli/doc_scraper.py --config configs/fastapi.json
+uv run skill-seekers --config configs/godot.json
+uv run skill-seekers --config configs/react.json
+uv run skill-seekers --config configs/vue.json
+uv run skill-seekers --config configs/django.json
+uv run skill-seekers --config configs/laravel.json
+uv run skill-seekers --config configs/fastapi.json
 ```
 
 ### First-Time User Workflow (Recommended)
 
 ```bash
 # 1. Install dependencies (one-time)
-pip3 install requests beautifulsoup4
+uv sync
 
 # 2. Estimate page count BEFORE scraping (fast, no data download)
-python3 cli/estimate_pages.py configs/godot.json
+uv run skill-seeker-estimate configs/godot.json
 # Time: ~1-2 minutes, shows estimated total pages and recommended max_pages
 
 # 3. Scrape with local enhancement (uses Claude Code Max, no API key)
-python3 cli/doc_scraper.py --config configs/godot.json --enhance-local
+uv run skill-seekers --config configs/godot.json --enhance-local
 # Time: 20-40 minutes scraping + 60 seconds enhancement
 
 # 4. Package the skill
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 
 # Result: godot.zip ready to upload to Claude
 ```
@@ -128,21 +130,21 @@ python3 cli/package_skill.py output/godot/
 
 ```bash
 # Step-by-step configuration wizard
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 ```
 
 ### Quick Mode (Minimal Config)
 
 ```bash
 # Create skill from any documentation URL
-python3 cli/doc_scraper.py --name react --url https://react.dev/ --description "React framework for UIs"
+uv run skill-seekers --name react --url https://react.dev/ --description "React framework for UIs"
 ```
 
 ### Skip Scraping (Use Cached Data)
 
 ```bash
 # Fast rebuild using previously scraped data
-python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
+uv run skill-seekers --config configs/godot.json --skip-scrape
 # Time: 1-3 minutes (instant rebuild)
 ```
 
@@ -151,38 +153,38 @@ python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
 **LOCAL Enhancement (Recommended - No API Key Required):**
 ```bash
 # During scraping
-python3 cli/doc_scraper.py --config configs/react.json --enhance-local
+uv run skill-seekers --config configs/react.json --enhance-local
 
 # Standalone after scraping
-python3 cli/enhance_skill_local.py output/react/
+uv run skill-seeker-enhance-local output/react/
 ```
 
 **API Enhancement (Alternative - Requires API Key):**
 ```bash
 # During scraping
-python3 cli/doc_scraper.py --config configs/react.json --enhance
+uv run skill-seekers --config configs/react.json --enhance
 
 # Standalone after scraping
-python3 cli/enhance_skill.py output/react/
-python3 cli/enhance_skill.py output/react/ --api-key sk-ant-...
+uv run skill-seeker-enhance output/react/
+uv run skill-seeker-enhance output/react/ --api-key sk-ant-...
 ```
 
 ### Package and Upload the Skill
 
 ```bash
 # Package skill (opens folder, shows upload instructions)
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 # Result: output/godot.zip
 
 # Package and auto-upload (requires ANTHROPIC_API_KEY)
 export ANTHROPIC_API_KEY=sk-ant-...
-python3 cli/package_skill.py output/godot/ --upload
+uv run skill-seeker-package output/godot/ --upload
 
 # Upload existing .zip
-python3 cli/upload_skill.py output/godot.zip
+uv run skill-seeker-upload output/godot.zip
 
 # Package without opening folder
-python3 cli/package_skill.py output/godot/ --no-open
+uv run skill-seeker-package output/godot/ --no-open
 ```
 
 ### Force Re-scrape
@@ -190,22 +192,22 @@ python3 cli/package_skill.py output/godot/ --no-open
 ```bash
 # Delete cached data and re-scrape from scratch
 rm -rf output/godot_data/
-python3 cli/doc_scraper.py --config configs/godot.json
+uv run skill-seekers --config configs/godot.json
 ```
 
 ### Estimate Page Count (Before Scraping)
 
 ```bash
 # Quick estimation - discover up to 100 pages
-python3 cli/estimate_pages.py configs/react.json --max-discovery 100
+uv run skill-seeker-estimate configs/react.json --max-discovery 100
 # Time: ~30-60 seconds
 
 # Full estimation - discover up to 1000 pages (default)
-python3 cli/estimate_pages.py configs/godot.json
+uv run skill-seeker-estimate configs/godot.json
 # Time: ~1-2 minutes
 
 # Deep estimation - discover up to 2000 pages
-python3 cli/estimate_pages.py configs/vue.json --max-discovery 2000
+uv run skill-seeker-estimate configs/vue.json --max-discovery 2000
 # Time: ~3-5 minutes
 
 # What it shows:
@@ -364,7 +366,7 @@ See: `create_enhanced_skill_md()` in doc_scraper.py:426-542
 
 ```bash
 # 1. Scrape + Build + AI Enhancement (LOCAL, no API key)
-python3 cli/doc_scraper.py --config configs/godot.json --enhance-local
+uv run skill-seekers --config configs/godot.json --enhance-local
 
 # 2. Wait for enhancement terminal to close (~60 seconds)
 
@@ -372,7 +374,7 @@ python3 cli/doc_scraper.py --config configs/godot.json --enhance-local
 cat output/godot/SKILL.md
 
 # 4. Package
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 
 # Result: godot.zip ready for Claude
 # Time: 20-40 minutes (scraping) + 60 seconds (enhancement)
@@ -382,11 +384,11 @@ python3 cli/package_skill.py output/godot/
 
 ```bash
 # 1. Use existing data + Local Enhancement
-python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
-python3 cli/enhance_skill_local.py output/godot/
+uv run skill-seekers --config configs/godot.json --skip-scrape
+uv run skill-seeker-enhance-local output/godot/
 
 # 2. Package
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 
 # Time: 1-3 minutes (build) + 60 seconds (enhancement)
 ```
@@ -395,10 +397,10 @@ python3 cli/package_skill.py output/godot/
 
 ```bash
 # 1. Scrape + Build (no enhancement)
-python3 cli/doc_scraper.py --config configs/godot.json
+uv run skill-seekers --config configs/godot.json
 
 # 2. Package
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 
 # Note: SKILL.md will be basic template - enhancement recommended
 # Time: 20-40 minutes
@@ -408,7 +410,7 @@ python3 cli/package_skill.py output/godot/
 
 **Option 1: Interactive**
 ```bash
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 # Follow prompts, it creates the config for you
 ```
 
@@ -424,7 +426,7 @@ nano configs/myframework.json
 # Set "max_pages": 20 in config
 
 # Use it
-python3 cli/doc_scraper.py --config configs/myframework.json
+uv run skill-seekers --config configs/myframework.json
 ```
 
 ## Testing & Verification
@@ -511,7 +513,7 @@ cat output/godot_data/summary.json | grep url | head -20
 **Solution:** Force re-scrape:
 ```bash
 rm -rf output/myframework_data/
-python3 cli/doc_scraper.py --config configs/myframework.json
+uv run skill-seekers --config configs/myframework.json
 ```
 
 ### Rate Limiting Issues
@@ -529,7 +531,7 @@ python3 cli/doc_scraper.py --config configs/myframework.json
 
 **Expected output:**
 ```bash
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 ```
 
 **Not:**

@@ -1,0 +1,36 @@
+{
+  "name": "tauri",
+  "description": "Tauri framework for building cross-platform desktop and mobile apps. Use for desktop app development, native integrations, Rust backend, and web-based UIs.",
+  "base_url": "https://v2.tauri.app/",
+  "start_urls": [
+    "https://v2.tauri.app/start/",
+    "https://v2.tauri.app/concept/",
+    "https://v2.tauri.app/security/",
+    "https://v2.tauri.app/develop/",
+    "https://v2.tauri.app/distribute/",
+    "https://v2.tauri.app/learn/",
+    "https://v2.tauri.app/plugin/",
+    "https://v2.tauri.app/reference/"
+  ],
+  "selectors": {
+    "main_content": ".sl-markdown-content",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": ["/start/", "/concept/", "/security/", "/develop/", "/distribute/", "/learn/", "/plugin/", "/reference/"],
+    "exclude": ["/blog/", "/release/", "/external-links/"]
+  },
+  "categories": {
+    "getting_started": ["start", "quickstart", "quick-start", "intro", "introduction"],
+    "core_concepts": ["concept", "architecture", "process", "security-model"],
+    "security": ["security", "permissions", "capability", "acl"],
+    "development": ["develop", "debug", "build", "testing"],
+    "distribution": ["distribute", "publish", "updater", "signing"],
+    "plugins": ["plugin", "extension", "api"],
+    "tutorials": ["learn", "tutorial", "guide"],
+    "reference": ["reference", "api", "config", "configuration"]
+  },
+  "rate_limit": 0.5,
+  "max_pages": 300
+}

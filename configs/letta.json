@@ -1,0 +1,26 @@
+{
+  "name": "letta",
+  "description": "Letta framework for building stateful AI agents with long-term memory. Use for AI agent development, memory management, tool integration, and multi-agent systems.",
+  "base_url": "https://docs.letta.com/",
+  "selectors": {
+    "main_content": "article",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": ["/overview/", "/quickstart/", "/guides/", "/cookbooks/", "/api-reference/"],
+    "exclude": ["/leaderboard/", "/evals/", "/changelog/"]
+  },
+  "categories": {
+    "getting_started": ["quickstart", "introduction", "getting-started", "overview"],
+    "api_sdk": ["api", "sdk", "client", "python", "typescript", "integration", "rest"],
+    "agents": ["agent", "memory", "core-memory", "archival-memory", "retrieve", "modify", "create"],
+    "tools": ["tool", "tools", "mcp", "mcp-servers", "run-tool", "configure"],
+    "blocks": ["block", "blocks", "identities", "create-block", "modify-block"],
+    "messages": ["message", "messages", "send", "stream", "conversation"],
+    "deployment": ["selfhost", "cloud", "deployment", "server", "hosting"],
+    "multiprocessing": ["groups", "multi-agent", "collaboration", "workflows"]
+  },
+  "rate_limit": 0.5,
+  "max_pages": 200
+}

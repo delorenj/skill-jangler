@@ -27,10 +27,10 @@ Both analyze reference documentation and extract the best examples and guidance.
 
 ```bash
 # Option 1: Standalone enhancement
-python3 cli/enhance_skill_local.py output/steam-inventory/
+uv run skill-seeker-enhance-local output/steam-inventory/
 
 # Option 2: Integrated with scraper
-python3 cli/doc_scraper.py --config configs/steam-inventory.json --enhance-local
+uv run skill-seekers --config configs/steam-inventory.json --enhance-local
 ```
 
 **What happens:**
@@ -51,7 +51,7 @@ python3 cli/doc_scraper.py --config configs/steam-inventory.json --enhance-local
 ### Installation
 
 ```bash
-pip3 install anthropic
+uv sync anthropic
 ```
 
 ### Setup API Key
@@ -61,20 +61,20 @@ pip3 install anthropic
 export ANTHROPIC_API_KEY=sk-ant-...
 
 # Option 2: Pass directly with --api-key
-python3 cli/enhance_skill.py output/react/ --api-key sk-ant-...
+uv run skill-seeker-enhance output/react/ --api-key sk-ant-...
 ```
 
 ### Usage
 
 ```bash
 # Standalone enhancement
-python3 cli/enhance_skill.py output/steam-inventory/
+uv run skill-seeker-enhance output/steam-inventory/
 
 # Integrated with scraper
-python3 cli/doc_scraper.py --config configs/steam-inventory.json --enhance
+uv run skill-seekers --config configs/steam-inventory.json --enhance
 
 # Dry run (see what would be done)
-python3 cli/enhance_skill.py output/react/ --dry-run
+uv run skill-seeker-enhance output/react/ --dry-run
 ```
 
 ## What It Does
@@ -137,18 +137,18 @@ bool success = SteamInventory()->GetAllItems( &resultHandle );
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
 # or
-python3 cli/enhance_skill.py output/react/ --api-key sk-ant-...
+uv run skill-seeker-enhance output/react/ --api-key sk-ant-...
 ```
 
 ### "No reference files found"
 Make sure you've run the scraper first:
 ```bash
-python3 cli/doc_scraper.py --config configs/react.json
+uv run skill-seekers --config configs/react.json
 ```
 
 ### "anthropic package not installed"
 ```bash
-pip3 install anthropic
+uv sync anthropic
 ```
 
 ### Don't like the result?
@@ -157,7 +157,7 @@ pip3 install anthropic
 mv output/steam-inventory/SKILL.md.backup output/steam-inventory/SKILL.md
 
 # Try again (it may generate different content)
-python3 cli/enhance_skill.py output/steam-inventory/
+uv run skill-seeker-enhance output/steam-inventory/
 ```
 
 ## Tips

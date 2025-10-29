@@ -1,0 +1,174 @@
+[project]
+name = "skill-seekers"
+version = "1.2.0"
+description = "Automatically convert any documentation website into a Claude AI skill"
+authors = [
+    { name = "Yusuf Karaaslan", email = "yusufkaraaslan@example.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = ["claude", "ai", "documentation", "scraper", "skill", "mcp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+# Core dependencies (required for basic HTML scraping)
+dependencies = [
+    "requests>=2.32.0",
+    "beautifulsoup4>=4.14.0",
+    "soupsieve>=2.8",
+    "certifi>=2025.10.0",
+    "charset-normalizer>=3.4.0",
+    "idna>=3.11",
+    "urllib3>=2.5.0",
+]
+
+[project.optional-dependencies]
+# PDF support dependencies
+pdf = [
+    "PyMuPDF>=1.24.0",
+    "Pillow>=11.0.0",
+    "pytesseract>=0.3.13",
+]
+
+# MCP server dependencies
+mcp = [
+    "mcp>=1.18.0",
+    "pydantic>=2.12.0",
+    "pydantic-settings>=2.11.0",
+    "pydantic_core>=2.41.0",
+    "httpx>=0.28.0",
+    "httpx-sse>=0.4.0",
+    "httpcore>=1.0.0",
+    "h11>=0.16.0",
+    "anyio>=4.11.0",
+    "sniffio>=1.3.0",
+    "starlette>=0.48.0",
+    "sse-starlette>=3.0.0",
+    "uvicorn>=0.38.0",
+    "python-multipart>=0.0.20",
+    "python-dotenv>=1.1.0",
+    "click>=8.3.0",
+]
+
+# API-based enhancement (optional)
+enhance = [
+    "anthropic>=0.18.0",
+]
+
+# Development dependencies
+dev = [
+    "pytest>=8.4.0",
+    "pytest-cov>=7.0.0",
+    "coverage>=7.11.0",
+]
+
+# All optional dependencies combined
+all = [
+    "skill-seekers[pdf,mcp,enhance,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/yusufkaraaslan/Skill_Seekers"
+Documentation = "https://github.com/yusufkaraaslan/Skill_Seekers/blob/main/README.md"
+Repository = "https://github.com/yusufkaraaslan/Skill_Seekers"
+Issues = "https://github.com/yusufkaraaslan/Skill_Seekers/issues"
+
+[project.scripts]
+# Main entry point
+skill-seekers = "cli.doc_scraper:main"
+
+# Individual CLI tools
+skill-seeker-scrape = "cli.doc_scraper:main"
+skill-seeker-estimate = "cli.estimate_pages:main"
+skill-seeker-enhance = "cli.enhance_skill:main"
+skill-seeker-enhance-local = "cli.enhance_skill_local:main"
+skill-seeker-package = "cli.package_skill:main"
+skill-seeker-upload = "cli.upload_skill:main"
+skill-seeker-pdf = "cli.pdf_scraper:main"
+
+# Utility commands
+skill-seeker-router = "cli.generate_router:main"
+skill-seeker-split = "cli.split_config:main"
+skill-seeker-test = "cli.run_tests:main"
+
+# MCP server
+skill-seeker-mcp = "mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cli", "mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "cli/",
+    "mcp/",
+    "configs/",
+    "tests/",
+    "README.md",
+    "LICENSE",
+    "CLAUDE.md",
+    "pyproject.toml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "--verbose",
+    "--cov=skill_seekers",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+]
+
+[tool.coverage.run]
+source = ["cli", "mcp"]
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/venv/*",
+    "*/.venv/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+ignore = ["E501"]  # Line too long (handled by formatter)
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.4.0",
+    "pytest-cov>=7.0.0",
+    "coverage>=7.11.0",
+    "ruff>=0.1.0",
+]

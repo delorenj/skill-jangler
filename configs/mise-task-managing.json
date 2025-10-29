@@ -1,0 +1,35 @@
+{
+  "name": "mise-task-managing",
+  "description": "Use this skill when creating tasks to encapsulate complex devops workflows (packaging releases, managing dev environments, performing database operations), provide a central hub for all dev commands and invocables (wrap scripts, cli commands, db queries, one-liners, etc), and any other devops related services.",
+  "base_url": "https://mise.jdx.dev/",
+  "start_urls": [
+    "https://mise.jdx.dev/getting-started.html",
+    "https://mise.jdx.dev/tasks/",
+    "https://mise.jdx.dev/environments.html",
+    "https://mise.jdx.dev/dev-tools/",
+    "https://mise.jdx.dev/configuration/",
+    "https://mise.jdx.dev/cli/",
+    "https://mise.jdx.dev/guides/"
+  ],
+  "selectors": {
+    "main_content": "#VPContent",
+    "title": "h1",
+    "code_blocks": "pre code"
+  },
+  "url_patterns": {
+    "include": ["/tasks/", "/environments", "/dev-tools/", "/configuration/", "/cli/", "/guides/"],
+    "exclude": ["/cf-fonts/", "/__VP_HASH_MAP__", "/github.com/", "/discord.gg/"]
+  },
+  "categories": {
+    "getting_started": ["getting-started", "installation", "quickstart", "intro"],
+    "tasks": ["tasks", "task-runner", "run", "exec"],
+    "environments": ["environments", "env", "variables", "dotenv"],
+    "dev_tools": ["dev-tools", "tools", "version", "runtime"],
+    "configuration": ["configuration", "config", "mise.toml", "settings"],
+    "cli_reference": ["cli", "command", "reference"],
+    "workflows": ["workflows", "pipeline", "automation"],
+    "guides": ["guides", "how-to", "tutorial"]
+  },
+  "rate_limit": 0.5,
+  "max_pages": 250
+}

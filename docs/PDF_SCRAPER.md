@@ -65,7 +65,7 @@ cat > configs/my_manual.json <<EOF
 EOF
 
 # Run scraper
-python3 cli/pdf_scraper.py --config configs/my_manual.json
+uv run skill-seeker-pdf --config configs/my_manual.json
 ```
 
 **Output:**
@@ -94,14 +94,14 @@ python3 cli/pdf_scraper.py --config configs/my_manual.json
 
 ✅ Skill built successfully: output/mymanual/
 
-📦 Next step: Package with: python3 cli/package_skill.py output/mymanual/
+📦 Next step: Package with: uv run skill-seeker-package output/mymanual/
 ```
 
 ### Mode 2: Direct PDF
 
 ```bash
 # Quick conversion without config file
-python3 cli/pdf_scraper.py --pdf manual.pdf --name mymanual --description "My Manual Docs"
+uv run skill-seeker-pdf --pdf manual.pdf --name mymanual --description "My Manual Docs"
 ```
 
 **Uses default settings:**
@@ -118,7 +118,7 @@ python3 cli/pdf_scraper.py --pdf manual.pdf --name mymanual --description "My Ma
 python3 cli/pdf_extractor_poc.py manual.pdf -o manual_extracted.json --extract-images
 
 # Step 2: Build skill from JSON (fast, can iterate)
-python3 cli/pdf_scraper.py --from-json manual_extracted.json
+uv run skill-seeker-pdf --from-json manual_extracted.json
 ```
 
 **Benefits:**
@@ -380,13 +380,13 @@ cat > configs/api_manual.json <<EOF
 EOF
 
 # 2. Run PDF scraper
-python3 cli/pdf_scraper.py --config configs/api_manual.json
+uv run skill-seeker-pdf --config configs/api_manual.json
 
 # 3. Package skill
-python3 cli/package_skill.py output/api_manual/
+uv run skill-seeker-package output/api_manual/
 
 # 4. Upload to Claude (if ANTHROPIC_API_KEY set)
-python3 cli/package_skill.py output/api_manual/ --upload
+uv run skill-seeker-package output/api_manual/ --upload
 
 # Result: api_manual.zip ready for Claude!
 ```
@@ -395,11 +395,11 @@ python3 cli/package_skill.py output/api_manual/ --upload
 
 ```bash
 # After building, enhance with AI
-python3 cli/enhance_skill_local.py output/api_manual/
+uv run skill-seeker-enhance-local output/api_manual/
 
 # Or with API
 export ANTHROPIC_API_KEY=sk-ant-...
-python3 cli/enhance_skill.py output/api_manual/
+uv run skill-seeker-enhance output/api_manual/
 ```
 
 ---

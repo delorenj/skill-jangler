@@ -544,7 +544,7 @@ cat manual.json | jq '.quality_statistics'
 cat manual.json | jq '.pages[].code_samples[] | select(.is_valid == false)'
 
 # Step 4: Build skill (future task B1.6)
-python3 cli/pdf_scraper.py --from-json manual.json
+uv run skill-seeker-pdf --from-json manual.json
 ```
 
 ---

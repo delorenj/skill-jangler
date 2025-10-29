@@ -5,7 +5,7 @@
 ### Step 1: Install Dependencies
 
 ```bash
-pip3 install requests beautifulsoup4
+uv sync
 ```
 
 > **Note:** Skill_Seekers automatically checks for llms.txt files first, which is 10x faster when available.
@@ -14,24 +14,24 @@ pip3 install requests beautifulsoup4
 
 **Option A: Use a Preset (Easiest)**
 ```bash
-python3 cli/doc_scraper.py --config configs/godot.json
+uv run skill-seekers --config configs/godot.json
 ```
 
 **Option B: Interactive Mode**
 ```bash
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 ```
 
 **Option C: Quick Command**
 ```bash
-python3 cli/doc_scraper.py --name react --url https://react.dev/
+uv run skill-seekers --name react --url https://react.dev/
 ```
 
 ### Step 3: Enhance SKILL.md (Recommended)
 
 ```bash
 # LOCAL enhancement (no API key, uses Claude Code Max)
-python3 cli/enhance_skill_local.py output/godot/
+uv run skill-seeker-enhance-local output/godot/
 ```
 
 **This takes 60 seconds and dramatically improves the SKILL.md quality!**
@@ -39,7 +39,7 @@ python3 cli/enhance_skill_local.py output/godot/
 ### Step 4: Package the Skill
 
 ```bash
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 ```
 
 **Done!** You now have `godot.zip` ready to use.
@@ -50,19 +50,19 @@ python3 cli/package_skill.py output/godot/
 
 ```bash
 # Godot Engine
-python3 cli/doc_scraper.py --config configs/godot.json
+uv run skill-seekers --config configs/godot.json
 
 # React
-python3 cli/doc_scraper.py --config configs/react.json
+uv run skill-seekers --config configs/react.json
 
 # Vue.js
-python3 cli/doc_scraper.py --config configs/vue.json
+uv run skill-seekers --config configs/vue.json
 
 # Django
-python3 cli/doc_scraper.py --config configs/django.json
+uv run skill-seekers --config configs/django.json
 
 # FastAPI
-python3 cli/doc_scraper.py --config configs/fastapi.json
+uv run skill-seekers --config configs/fastapi.json
 ```
 
 ---
@@ -72,7 +72,7 @@ python3 cli/doc_scraper.py --config configs/fastapi.json
 If you already scraped once:
 
 ```bash
-python3 cli/doc_scraper.py --config configs/godot.json
+uv run skill-seekers --config configs/godot.json
 
 # When prompted:
 ✓ Found existing data: 245 pages
@@ -83,7 +83,7 @@ Use existing data? (y/n): y
 
 Or use `--skip-scrape`:
 ```bash
-python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
+uv run skill-seekers --config configs/godot.json --skip-scrape
 ```
 
 ---
@@ -92,14 +92,14 @@ python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
 
 ```bash
 # 1. Install (once)
-pip3 install requests beautifulsoup4
+uv sync
 
 # 2. Scrape React docs with LOCAL enhancement
-python3 cli/doc_scraper.py --config configs/react.json --enhance-local
+uv run skill-seekers --config configs/react.json --enhance-local
 # Wait 15-30 minutes (scraping) + 60 seconds (enhancement)
 
 # 3. Package
-python3 cli/package_skill.py output/react/
+uv run skill-seeker-package output/react/
 
 # 4. Use react.zip in Claude!
 ```
@@ -107,13 +107,13 @@ python3 cli/package_skill.py output/react/
 **Alternative: Enhancement after scraping**
 ```bash
 # 2a. Scrape only (no enhancement)
-python3 cli/doc_scraper.py --config configs/react.json
+uv run skill-seekers --config configs/react.json
 
 # 2b. Enhance later
-python3 cli/enhance_skill_local.py output/react/
+uv run skill-seeker-enhance-local output/react/
 
 # 3. Package
-python3 cli/package_skill.py output/react/
+uv run skill-seeker-package output/react/
 ```
 
 ---
@@ -131,7 +131,7 @@ Edit config file:
 ### Rebuild Instantly
 ```bash
 # After first scrape, you can rebuild instantly:
-python3 cli/doc_scraper.py --config configs/react.json --skip-scrape
+uv run skill-seekers --config configs/react.json --skip-scrape
 ```
 
 ### Create Custom Config
@@ -143,7 +143,7 @@ cp configs/react.json configs/myframework.json
 nano configs/myframework.json
 
 # Use it
-python3 cli/doc_scraper.py --config configs/myframework.json
+uv run skill-seekers --config configs/myframework.json
 ```
 
 ---
@@ -174,10 +174,10 @@ See **README.md** for:
 
 ```bash
 # Godot
-python3 cli/doc_scraper.py --config configs/godot.json
+uv run skill-seekers --config configs/godot.json
 
 # Or interactive
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 ```
 
 That's it! 🚀

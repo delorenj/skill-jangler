@@ -268,13 +268,13 @@ cat > configs/manual.json <<EOF
 EOF
 
 # 2. Scrape PDF
-python3 cli/pdf_scraper.py --config configs/manual.json
+uv run skill-seeker-pdf --config configs/manual.json
 
 # 3. Package skill
-python3 cli/package_skill.py output/mymanual/
+uv run skill-seeker-package output/mymanual/
 
 # 4. Upload
-python3 cli/upload_skill.py output/mymanual.zip
+uv run skill-seeker-upload output/mymanual.zip
 
 # Result: PDF documentation → Claude skill ✅
 ```
@@ -283,8 +283,8 @@ python3 cli/upload_skill.py output/mymanual.zip
 
 ```bash
 # One-command conversion
-python3 cli/pdf_scraper.py --pdf manual.pdf --name mymanual
-python3 cli/package_skill.py output/mymanual/
+uv run skill-seeker-pdf --pdf manual.pdf --name mymanual
+uv run skill-seeker-package output/mymanual/
 ```
 
 ### MCP Mode

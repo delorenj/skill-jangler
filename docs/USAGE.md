@@ -20,16 +20,16 @@ Comprehensive reference for all commands, options, and workflows.
 
 ```bash
 # 1. Estimate pages (fast, 1-2 min)
-python3 cli/estimate_pages.py configs/react.json
+uv run skill-seeker-estimate configs/react.json
 
 # 2. Scrape documentation (20-40 min)
-python3 cli/doc_scraper.py --config configs/react.json
+uv run skill-seekers --config configs/react.json
 
 # 3. Enhance with Claude Code (60 sec)
-python3 cli/enhance_skill_local.py output/react/
+uv run skill-seeker-enhance-local output/react/
 
 # 4. Package to .zip (instant)
-python3 cli/package_skill.py output/react/
+uv run skill-seeker-package output/react/
 
 # 5. Test everything (1 sec)
 python3 cli/run_tests.py
@@ -70,16 +70,16 @@ options:
 
 **1. Use Preset Config (Recommended)**
 ```bash
-python3 cli/doc_scraper.py --config configs/godot.json
-python3 cli/doc_scraper.py --config configs/react.json
-python3 cli/doc_scraper.py --config configs/vue.json
-python3 cli/doc_scraper.py --config configs/django.json
-python3 cli/doc_scraper.py --config configs/fastapi.json
+uv run skill-seekers --config configs/godot.json
+uv run skill-seekers --config configs/react.json
+uv run skill-seekers --config configs/vue.json
+uv run skill-seekers --config configs/django.json
+uv run skill-seekers --config configs/fastapi.json
 ```
 
 **2. Interactive Mode**
 ```bash
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 # Wizard walks you through:
 # - Skill name
 # - Base URL
@@ -92,7 +92,7 @@ python3 cli/doc_scraper.py --interactive
 
 **3. Quick Mode (Minimal)**
 ```bash
-python3 cli/doc_scraper.py \
+uv run skill-seekers \
   --name react \
   --url https://react.dev/ \
   --description "React framework for building UIs"
@@ -100,7 +100,7 @@ python3 cli/doc_scraper.py \
 
 **4. Dry-Run (Preview)**
 ```bash
-python3 cli/doc_scraper.py --config configs/react.json --dry-run
+uv run skill-seekers --config configs/react.json --dry-run
 # Shows what will be scraped without downloading data
 # No directories created
 # Fast validation
@@ -108,7 +108,7 @@ python3 cli/doc_scraper.py --config configs/react.json --dry-run
 
 **5. Skip Scraping (Use Cached Data)**
 ```bash
-python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
+uv run skill-seekers --config configs/godot.json --skip-scrape
 # Uses existing output/godot_data/
 # Fast rebuild (1-3 minutes)
 # Useful for testing changes
@@ -116,7 +116,7 @@ python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
 
 **6. With Local Enhancement**
 ```bash
-python3 cli/doc_scraper.py --config configs/react.json --enhance-local
+uv run skill-seekers --config configs/react.json --enhance-local
 # Scrapes + enhances in one command
 # Opens new terminal for Claude Code
 # No API key needed
@@ -125,10 +125,10 @@ python3 cli/doc_scraper.py --config configs/react.json --enhance-local
 **7. With API Enhancement**
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
-python3 cli/doc_scraper.py --config configs/react.json --enhance
+uv run skill-seekers --config configs/react.json --enhance
 
 # Or with inline API key:
-python3 cli/doc_scraper.py --config configs/react.json --enhance --api-key sk-ant-...
+uv run skill-seekers --config configs/react.json --enhance --api-key sk-ant-...
 ```
 
 ### Output Structure
@@ -182,28 +182,28 @@ options:
 
 **1. Quick Estimate (100 pages)**
 ```bash
-python3 cli/estimate_pages.py configs/react.json --max-discovery 100
+uv run skill-seeker-estimate configs/react.json --max-discovery 100
 # Time: ~30-60 seconds
 # Good for: Quick validation
 ```
 
 **2. Standard Estimate (1000 pages - default)**
 ```bash
-python3 cli/estimate_pages.py configs/godot.json
+uv run skill-seeker-estimate configs/godot.json
 # Time: ~1-2 minutes
 # Good for: Most use cases
 ```
 
 **3. Deep Estimate (2000 pages)**
 ```bash
-python3 cli/estimate_pages.py configs/vue.json --max-discovery 2000
+uv run skill-seeker-estimate configs/vue.json --max-discovery 2000
 # Time: ~3-5 minutes
 # Good for: Large documentation sites
 ```
 
 **4. Custom Timeout**
 ```bash
-python3 cli/estimate_pages.py configs/django.json --timeout 60
+uv run skill-seeker-estimate configs/django.json --timeout 60
 # Useful for slow servers
 ```
 
@@ -259,8 +259,8 @@ Base URL: https://react.dev/
 
 ```bash
 # Usage
-python3 cli/enhance_skill_local.py output/react/
-python3 cli/enhance_skill_local.py output/godot/
+uv run skill-seeker-enhance-local output/react/
+uv run skill-seeker-enhance-local output/godot/
 
 # What it does:
 # 1. Reads SKILL.md and references/
@@ -279,14 +279,14 @@ python3 cli/enhance_skill_local.py output/godot/
 
 ```bash
 # Install dependency first
-pip3 install anthropic
+uv sync anthropic
 
 # Usage with environment variable
 export ANTHROPIC_API_KEY=sk-ant-...
-python3 cli/enhance_skill.py output/react/
+uv run skill-seeker-enhance output/react/
 
 # Usage with inline API key
-python3 cli/enhance_skill.py output/godot/ --api-key sk-ant-...
+uv run skill-seeker-enhance output/godot/ --api-key sk-ant-...
 
 # What it does:
 # 1. Reads SKILL.md and references/
@@ -307,8 +307,8 @@ python3 cli/enhance_skill.py output/godot/ --api-key sk-ant-...
 
 ```bash
 # Usage
-python3 cli/package_skill.py output/react/
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/react/
+uv run skill-seeker-package output/godot/
 
 # What it does:
 # 1. Validates SKILL.md exists
@@ -434,13 +434,13 @@ python3 -m json.tool configs/godot.json
 
 ```bash
 # 1. Estimate (optional, 1-2 min)
-python3 cli/estimate_pages.py configs/react.json
+uv run skill-seeker-estimate configs/react.json
 
 # 2. Scrape with local enhancement (25 min)
-python3 cli/doc_scraper.py --config configs/react.json --enhance-local
+uv run skill-seekers --config configs/react.json --enhance-local
 
 # 3. Package (instant)
-python3 cli/package_skill.py output/react/
+uv run skill-seeker-package output/react/
 
 # Result: output/react.zip
 # Upload to Claude!
@@ -461,26 +461,26 @@ cat > configs/my-docs.json << 'EOF'
 EOF
 
 # 2. Estimate
-python3 cli/estimate_pages.py configs/my-docs.json
+uv run skill-seeker-estimate configs/my-docs.json
 
 # 3. Dry-run test
-python3 cli/doc_scraper.py --config configs/my-docs.json --dry-run
+uv run skill-seekers --config configs/my-docs.json --dry-run
 
 # 4. Full scrape
-python3 cli/doc_scraper.py --config configs/my-docs.json
+uv run skill-seekers --config configs/my-docs.json
 
 # 5. Enhance
-python3 cli/enhance_skill_local.py output/my-docs/
+uv run skill-seeker-enhance-local output/my-docs/
 
 # 6. Package
-python3 cli/package_skill.py output/my-docs/
+uv run skill-seeker-package output/my-docs/
 ```
 
 ### Workflow 3: Interactive Mode
 
 ```bash
 # 1. Start interactive wizard
-python3 cli/doc_scraper.py --interactive
+uv run skill-seekers --interactive
 
 # 2. Answer prompts:
 #    - Name: my-framework
@@ -491,16 +491,16 @@ python3 cli/doc_scraper.py --interactive
 #    - Max pages: 100
 
 # 3. Enhance
-python3 cli/enhance_skill_local.py output/my-framework/
+uv run skill-seeker-enhance-local output/my-framework/
 
 # 4. Package
-python3 cli/package_skill.py output/my-framework/
+uv run skill-seeker-package output/my-framework/
 ```
 
 ### Workflow 4: Quick Mode
 
 ```bash
-python3 cli/doc_scraper.py \
+uv run skill-seekers \
   --name vue \
   --url https://vuejs.org/ \
   --description "Vue.js framework" \
@@ -512,13 +512,13 @@ python3 cli/doc_scraper.py \
 ```bash
 # Already scraped once?
 # Skip re-scraping, just rebuild
-python3 cli/doc_scraper.py --config configs/godot.json --skip-scrape
+uv run skill-seekers --config configs/godot.json --skip-scrape
 
 # Try new enhancement
-python3 cli/enhance_skill_local.py output/godot/
+uv run skill-seeker-enhance-local output/godot/
 
 # Re-package
-python3 cli/package_skill.py output/godot/
+uv run skill-seeker-package output/godot/
 ```
 
 ### Workflow 6: Testing New Config
@@ -535,13 +535,13 @@ cat > configs/test.json << 'EOF'
 EOF
 
 # 2. Estimate
-python3 cli/estimate_pages.py configs/test.json --max-discovery 50
+uv run skill-seeker-estimate configs/test.json --max-discovery 50
 
 # 3. Dry-run
-python3 cli/doc_scraper.py --config configs/test.json --dry-run
+uv run skill-seekers --config configs/test.json --dry-run
 
 # 4. Small scrape
-python3 cli/doc_scraper.py --config configs/test.json
+uv run skill-seekers --config configs/test.json
 
 # 5. Validate output
 ls output/test-site/
@@ -572,7 +572,7 @@ ls output/test-site/references/
 
 ```bash
 # Estimate first
-python3 cli/estimate_pages.py configs/my-config.json
+uv run skill-seeker-estimate configs/my-config.json
 
 # Set max_pages based on estimate
 # Add buffer: estimated + 50
@@ -622,7 +622,7 @@ python3 -m unittest tests.test_config_validation.TestConfigValidation.test_name 
 echo $ANTHROPIC_API_KEY
 
 # Or use inline:
-python3 cli/enhance_skill.py output/react/ --api-key sk-ant-...
+uv run skill-seeker-enhance output/react/ --api-key sk-ant-...
 ```
 
 ### Issue: "Package fails"
@@ -632,7 +632,7 @@ python3 cli/enhance_skill.py output/react/ --api-key sk-ant-...
 ls output/my-skill/SKILL.md
 
 # If missing, build first:
-python3 cli/doc_scraper.py --config configs/my-skill.json --skip-scrape
+uv run skill-seekers --config configs/my-skill.json --skip-scrape
 ```
 
 ### Issue: "Can't find output"
@@ -773,8 +773,8 @@ Skill_Seekers/
 
 ```bash
 # Tool-specific help
-python3 cli/doc_scraper.py --help
-python3 cli/estimate_pages.py --help
+uv run skill-seekers --help
+uv run skill-seeker-estimate --help
 python3 cli/run_tests.py --help
 
 # Documentation
@@ -793,18 +793,18 @@ cat README.md              # Project overview
 
 **Essential Commands:**
 ```bash
-python3 cli/estimate_pages.py configs/react.json              # Estimate
-python3 cli/doc_scraper.py --config configs/react.json        # Scrape
-python3 cli/enhance_skill_local.py output/react/              # Enhance
-python3 cli/package_skill.py output/react/                    # Package
+uv run skill-seeker-estimate configs/react.json              # Estimate
+uv run skill-seekers --config configs/react.json        # Scrape
+uv run skill-seeker-enhance-local output/react/              # Enhance
+uv run skill-seeker-package output/react/                    # Package
 python3 cli/run_tests.py                                      # Test
 ```
 
 **Quick Start:**
 ```bash
-pip3 install requests beautifulsoup4
-python3 cli/doc_scraper.py --config configs/react.json --enhance-local
-python3 cli/package_skill.py output/react/
+uv sync requests beautifulsoup4
+uv run skill-seekers --config configs/react.json --enhance-local
+uv run skill-seeker-package output/react/
 # Upload output/react.zip to Claude!
 ```
 
